@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen Semanal — Mihran Argentina + México</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f3ee;color:#1a1a18;font-size:15px;line-height:1.7;padding:2rem 1rem}
+.page{max-width:880px;margin:0 auto}
+.card{background:#fff;border-radius:16px;border:.5px solid #e0dfd8;padding:1.75rem 2rem;margin-bottom:1.1rem}
+h1{font-size:22px;font-weight:500;margin-bottom:4px}
+.subtitle{font-size:13px;color:#888780}
+.st{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#888780;margin:0 0 12px;border-bottom:.5px solid #e0dfd8;padding-bottom:6px}
+.g{display:grid;gap:10px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.mc{background:#f4f3ee;border-radius:8px;padding:12px 14px}
+.ml{font-size:11px;color:#888780;margin:0 0 3px}.mv{font-size:20px;font-weight:500;margin:0}.ms{font-size:11px;color:#888780;margin:3px 0 0}
+.up{color:#1D9E75}.warn{color:#BA7517}.dn{color:#D85A30}
+.nb{background:#E1F5EE;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;line-height:1.6;margin-top:10px}
+.wb{background:#FAEEDA;border-left:3px solid #BA7517;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;line-height:1.6;margin-top:10px}
+table.t{width:100%;border-collapse:collapse;font-size:12px}
+table.t th{text-align:left;color:#888780;font-weight:500;padding:5px 8px 7px;border-bottom:.5px solid #e0dfd8;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+table.t td{padding:7px 8px;border-bottom:.5px solid #e0dfd8;vertical-align:middle}
+table.t tr:last-child td{border-bottom:none}
+.total-row td{background:#f9f9f7;font-weight:500}
+.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;font-weight:500}
+.b-green{background:#E1F5EE;color:#0F6E56}.b-blue{background:#E6F1FB;color:#185FA5}.b-amber{background:#FAEEDA;color:#854F0B}.b-gray{background:#F1EFE8;color:#5F5E5A}
+.tag{font-size:10px;color:#888780;display:block;margin-top:1px}
+strong{font-weight:500}
+.prog-wrap{background:#e0dfd8;border-radius:4px;height:6px;margin-top:6px;overflow:hidden}
+.prog-bar{height:100%;border-radius:4px}
+.week-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.week-card{background:#f4f3ee;border-radius:10px;padding:14px}
+.week-title{font-size:11px;font-weight:500;color:#888780;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+.week-row{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:.5px solid #e0dfd8}
+.week-row:last-child{border-bottom:none}
+.week-label{color:#888780}
+.act{border-radius:10px;padding:13px 15px;margin-bottom:7px}
+.act-now{background:#E1F5EE;border-left:4px solid #1D9E75}
+.act-next{background:#E6F1FB;border-left:4px solid #185FA5}
+.act-title{font-size:12px;font-weight:500;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.act-body{font-size:12px;line-height:1.6;color:#3a3a38}
+.checklist{display:flex;flex-direction:column;gap:5px}
+.cl-item{display:flex;align-items:flex-start;gap:12px;background:#f4f3ee;border-radius:10px;padding:11px 14px;text-decoration:none;color:#1a1a18;transition:background .15s}
+.cl-item:hover{background:#e8e7e1}
+.cl-icon{font-size:17px;flex-shrink:0;margin-top:1px}
+.cl-label{font-size:12px;font-weight:500;margin-bottom:1px}
+.cl-sub{font-size:11px;color:#888780}
+.cl-arrow{margin-left:auto;color:#c0bfba;font-size:14px;flex-shrink:0;align-self:center}
+.cl-tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:8px;font-weight:500;margin-left:6px}
+.cl-now{background:#E1F5EE;color:#0F6E56}
+.cl-next{background:#E6F1FB;color:#185FA5}
+.chip{display:inline-block;font-size:11px;padding:2px 8px;border-radius:6px;font-weight:500;margin:2px 2px 2px 0}
+.chip-blue{background:#E6F1FB;color:#185FA5}
+.chip-green{background:#E1F5EE;color:#0F6E56}
+.chip-amber{background:#FAEEDA;color:#854F0B}
+.chip-red{background:#fde8e4;color:#991f0f}
+.cat-block{margin-bottom:14px;background:#f9f9f7;border-radius:10px;padding:14px}
+.sep{border:none;border-top:2px solid #185FA5;margin:1.5rem 0;opacity:0.3}
+@media(max-width:620px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}.week-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="card">
+  <h1>Mihran — Resumen semanal</h1>
+  <p class="subtitle">Argentina: julio consolidado + agosto 1–5/8 · México: julio + agosto 1–4/8 · Transición S3 jul → S4 jul → S1 ago</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--                    MIHRAN ARGENTINA                       -->
+<!-- ══════════════════════════════════════════════════════════ -->
+
+<div class="card" style="background:#185FA5;color:#fff;padding:12px 20px;border:none">
+  <h1 style="color:#fff;font-size:16px;margin:0">Mihran Argentina</h1>
+</div>
+
+<!-- KPIs JULIO + AGOSTO -->
+<div class="card">
+  <div class="st">Julio consolidado (1–31/7)</div>
+  <div class="g g4" style="margin-bottom:10px">
+    <div class="mc">
+      <p class="ml">Facturación backend</p>
+      <p class="mv">$62,1M</p>
+      <p class="ms warn">Obj. $70M → 88,7%</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:88.7%;background:#BA7517"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Pedidos · Ticket</p>
+      <p class="mv">132</p>
+      <p class="ms up">$470.466 ticket (obj. $370K) ✓</p>
+    </div>
+    <div class="mc">
+      <p class="ml">ACOS performance</p>
+      <p class="mv">16,5%</p>
+      <p class="ms">Inv. perf $10,24M</p>
+    </div>
+    <div class="mc">
+      <p class="ml">ACOS total</p>
+      <p class="mv">24,0%</p>
+      <p class="ms">Inv. total $14,87M</p>
+    </div>
+  </div>
+  <div class="g g4">
+    <div class="mc">
+      <p class="ml">Inv. performance</p>
+      <p class="mv">$10,24M</p>
+      <p class="ms warn">Plan $11,42M → 89,7%</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:89.7%;background:#BA7517"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Inv. total</p>
+      <p class="mv">$14,87M</p>
+      <p class="ms warn">Plan $16,49M → 90,2%</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:90.2%;background:#BA7517"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Sesiones GA4</p>
+      <p class="mv">85.948</p>
+      <p class="ms">CVR 0,133% · 59.900 nuevos</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Unidades vendidas</p>
+      <p class="mv">156</p>
+      <p class="ms">100% alfombras</p>
+    </div>
+  </div>
+
+  <div class="st" style="margin-top:16px">Agosto en curso (1–5/8)</div>
+  <div class="g g4">
+    <div class="mc">
+      <p class="ml">Facturación backend</p>
+      <p class="mv up">$14,18M</p>
+      <p class="ms">Obj. $50M → 28,4% en 5 días</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:28.4%;background:#1D9E75"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Pedidos · Ticket</p>
+      <p class="mv">21</p>
+      <p class="ms up">$675.263 ticket (obj. $420K) ✓</p>
+    </div>
+    <div class="mc">
+      <p class="ml">ACOS performance</p>
+      <p class="mv up">12,0%</p>
+      <p class="ms">Inv. perf $1,70M</p>
+    </div>
+    <div class="mc">
+      <p class="ml">ACOS total</p>
+      <p class="mv up">17,3%</p>
+      <p class="ms">Inv. total $2,46M</p>
+    </div>
+  </div>
+  <div class="nb" style="margin-top:10px">Agosto arranca con ACOS performance de 12,0% y ticket de $675K — ambos mejores que el promedio de julio ($470K · 16,5%). El ritmo de facturación ($2,84M/día) está en línea con el objetivo de $50M para el mes ($1,61M/día necesario). El ticket más alto se explica por tallas grandes (Yutex Ankh 300×400 $1,65M · Kilim Anatolia 170×240 $1,41M) que dominan los primeros días.</div>
+</div>
+
+<!-- GRÁFICO -->
+<div class="card">
+  <div class="st">Facturación diaria — julio + agosto (ARS)</div>
+  <canvas id="chartAR" style="max-height:200px"></canvas>
+  <p style="font-size:11px;color:#888780;margin-top:6px">Barras azules: julio · Barras verdes: agosto · Línea: objetivo diario agosto ($1,61M/día)</p>
+</div>
+
+<!-- SEMANAL TRANSICIÓN -->
+<div class="card">
+  <div class="st">Transición semanal — S3 julio → S4 julio → S1 agosto</div>
+  <div class="week-grid">
+    <div class="week-card">
+      <div class="week-title">S3 · 16–23/7</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span class="dn">$10,6M</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span>30</span></div>
+      <div class="week-row"><span class="week-label">Ticket</span><span class="dn">$355.228</span></div>
+      <div class="week-row"><span class="week-label">Inv. performance</span><span>$3,42M</span></div>
+      <div class="week-row"><span class="week-label">ACOS</span><span class="dn">32,1%</span></div>
+    </div>
+    <div class="week-card">
+      <div class="week-title">S4 · 24–31/7</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span class="up">$17,8M ▲68%</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span>31</span></div>
+      <div class="week-row"><span class="week-label">Ticket</span><span class="up">$575.242 ▲62%</span></div>
+      <div class="week-row"><span class="week-label">Inv. performance</span><span>$3,66M</span></div>
+      <div class="week-row"><span class="week-label">ACOS</span><span class="warn">20,5%</span></div>
+    </div>
+    <div class="week-card" style="background:#E1F5EE">
+      <div class="week-title" style="color:#0F6E56">S1 · 1–5/8</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span class="up">$14,2M (5 días)</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span>21</span></div>
+      <div class="week-row"><span class="week-label">Ticket</span><span class="up">$675.263 ▲17%</span></div>
+      <div class="week-row"><span class="week-label">Inv. performance</span><span>$1,70M</span></div>
+      <div class="week-row"><span class="week-label">ACOS</span><span class="up">12,0% ⭐</span></div>
+    </div>
+  </div>
+  <div class="nb">La tendencia es claramente ascendente: S3 cerró con el ACOS más alto del mes (32,1% · ticket $355K) y desde S4 la eficiencia mejoró semana a semana. S1 de agosto con ACOS 12,0% y ticket $675K es el mejor arranque del año — el mix de tallas grandes en los primeros pedidos de agosto explica el ticket más alto.</div>
+</div>
+
+<!-- CHECKLIST -->
+<div class="card">
+  <div class="st">Optimizaciones AR — qué encaramos y qué viene</div>
+  <div class="checklist">
+    <a href="#opt-ht" class="cl-item">
+      <span class="cl-icon">📐</span>
+      <div>
+        <div class="cl-label">High Tickets — ajustar por tamaño grande + LAL compradores high ticket <span class="cl-tag cl-now">Esta semana</span></div>
+        <div class="cl-sub">Tallas ≥200×290 concentran el 68% del revenue julio · reemplazar best sellers por tallas grandes y activar LAL desde backend de compradores ≥$800K</div>
+      </div>
+      <i class="ti ti-chevron-right cl-arrow"></i>
+    </a>
+    <a href="#opt-rmkt" class="cl-item">
+      <span class="cl-icon">🔁</span>
+      <div>
+        <div class="cl-label">RMKT OpenMix — ampliar ventana de audiencia a 60–90 días y filtrar a mid-high ticket <span class="cl-tag cl-now">Esta semana</span></div>
+        <div class="cl-sub">RMKT OpenMix ACOS 54% con freq alta — la audiencia está saturada · ampliar ventana y limitar a productos ≥$400K para subir el ticket de la campaña</div>
+      </div>
+      <i class="ti ti-chevron-right cl-arrow"></i>
+    </a>
+    <a href="#opt-cat" class="cl-item">
+      <span class="cl-icon">🏆</span>
+      <div>
+        <div class="cl-label">Catálogo — migrar de RMKT-Intereses a Catálogo Best Sellers con portada <span class="cl-tag cl-now">Esta semana</span></div>
+        <div class="cl-sub">RMKT-Intereses ACOS 42,4% con ticket $278K — el catálogo muestra todo el mix sin filtro. Migrar a Best Sellers (Moon Light, Yutex Ankh, Sisalo Togo, Yute Nomad) + filtrar feed ≥$400K</div>
+      </div>
+      <i class="ti ti-chevron-right cl-arrow"></i>
+    </a>
+    <a href="#opt-mid" class="cl-item">
+      <span class="cl-icon">🎯</span>
+      <div>
+        <div class="cl-label">Mid Tickets — escalar IMG_Dune + IMG_Tejidas y reducir VID_Nature-Collection <span class="cl-tag cl-now">Esta semana</span></div>
+        <div class="cl-sub">IMG_Dune ACOS 25,6% · IMG_Tejidas 25,0% vs VID_Nature-Collection ACOS 50,0% con más presupuesto. Redistribuir hacia las piezas eficientes</div>
+      </div>
+      <i class="ti ti-chevron-right cl-arrow"></i>
+    </a>
+    <a href="#opt-pmax" class="cl-item">
+      <span class="cl-icon">🔍</span>
+      <div>
+        <div class="cl-label">Google PMax — filtrar feed a tallas grandes + ≥$400K <span class="cl-tag cl-next">Agosto</span></div>
+        <div class="cl-sub">PMax Purchase ACOS 181% — el feed sin filtro muestra alfombras chicas ($50K–$150K) que no convierten bien. Filtrar a tallas ≥160×230 y ticket ≥$400K</div>
+      </div>
+      <i class="ti ti-chevron-right cl-arrow"></i>
+    </a>
+  </div>
+</div>
+
+<!-- META ADS AR -->
+<div id="opt-ht" class="card">
+  <div class="st">Meta Ads AR — agosto (1–5/8)</div>
+  <table class="t" style="margin-bottom:14px">
+    <thead><tr><th>Campaña</th><th>Inv.</th><th>Comp.</th><th>Revenue</th><th>ROAS</th><th>Ticket</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Mid Tickets</strong><span class="tag">Alto-Tránsito + A Medida + Tejidas</span></td><td>$461.712</td><td>1</td><td>$472.000</td><td><span class="warn">1,02</span></td><td>$472.000</td></tr>
+      <tr id="opt-cat"><td><strong>Catálogo</strong><span class="tag">RMKT-Intereses + Videos</span></td><td>$330.018</td><td>0</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td><strong>High Tickets</strong><span class="tag">Intereses_Prospecting_800K</span></td><td>$285.836</td><td>0</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td><strong>Low Tickets</strong><span class="tag">Avg Ticket &lt;$300K + Dune/Sisalo</span></td><td>$274.621</td><td>0</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr id="opt-rmkt"><td><strong>RMKT Tickets</strong><span class="tag">Mid + High RMKT Low Funnel</span></td><td>$120.403</td><td>2</td><td>$1.250.000</td><td><span class="up">10,38</span></td><td>$625.000</td></tr>
+      <tr class="total-row"><td>Total performance Meta</td><td>$1.472.590</td><td>3</td><td>$1.722.000</td><td>1,17</td><td>$574.000</td></tr>
+    </tbody>
+  </table>
+  <div class="wb">Con solo 5 días de agosto, Meta registró 3 compras: 2 vía RMKT Tickets (Mid_Tickets_RMKT_Low_Funnel · ROAS 16,74) y 1 vía Mid Tickets (Alto-Tránsito · ROAS 2,97). High Tickets, Catálogo y Low Tickets aún no registraron compras en los primeros días — la ventana de conversión habitual para estas campañas es de 7 a 10 días, por lo que se espera que las conversiones se acumulen hacia fin de semana.</div>
+
+  <div class="st">Adsets agosto (1–5/8) — con compras</div>
+  <table class="t" style="margin-bottom:14px">
+    <thead><tr><th>Adset</th><th>Campaña</th><th>Inv.</th><th>Comp.</th><th>Revenue</th><th>ROAS</th><th>Ticket</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Mid_Tickets_RMKT_Low_Funnel</strong><span class="tag">⭐ mejor ROAS de agosto</span></td><td>RMKT Tickets</td><td>$74.667</td><td>2</td><td>$1.250.000</td><td><span class="up">16,74</span></td><td>$625.000</td></tr>
+      <tr><td><strong>Intereses_Prospecting_Alto-Tránsito</strong></td><td>Mid Tickets</td><td>$158.914</td><td>1</td><td>$472.000</td><td><span class="warn">2,97</span></td><td>$472.000</td></tr>
+    </tbody>
+  </table>
+  <div class="st">Adsets agosto sin compras — monitorear</div>
+  <table class="t" style="margin-bottom:14px">
+    <thead><tr><th>Adset</th><th>Campaña</th><th>Inv. consumida</th></tr></thead>
+    <tbody>
+      <tr><td>Intereses_Prospecting_800K</td><td>High Tickets</td><td>$285.836</td></tr>
+      <tr><td>Intereses_Prospecting_A Medida</td><td>Mid Tickets</td><td>$257.032</td></tr>
+      <tr><td>RMKT-Intereses</td><td>Catálogo</td><td>$255.851</td></tr>
+      <tr><td>Avg_Ticket_Menor_300k</td><td>Low Tickets</td><td>$219.050</td></tr>
+    </tbody>
+  </table>
+
+  <div id="opt-mid" class="st">Top anuncios — agosto (1–5/8 · con compras)</div>
+  <table class="t" style="margin-bottom:14px">
+    <thead><tr><th>Anuncio</th><th>Adset</th><th>Inv.</th><th>Comp.</th><th>Revenue</th><th>ROAS</th><th>Ticket</th></tr></thead>
+    <tbody>
+      <tr><td><strong>VID_Nature-Collection_Mid_Ticket_16-07</strong><span class="tag">⭐ mejor ROAS de agosto</span></td><td>Mid Tkt RMKT Low Funnel</td><td>$73.821</td><td>2</td><td>$1.250.000</td><td><span class="up">16,93</span></td><td>$625.000</td></tr>
+      <tr><td><strong>IMG_Dune_7-7-2026</strong></td><td>Alto-Tránsito</td><td>$158.832</td><td>1</td><td>$472.000</td><td><span class="warn">2,97</span></td><td>$472.000</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ACCIONES META AR -->
+  <div class="act act-now" style="margin-bottom:7px">
+    <div class="act-title"><i class="ti ti-circle-check" style="color:#1D9E75"></i> High Tickets — ajustar por tamaño grande + LAL compradores high ticket</div>
+    <div class="act-body">El adset Intereses_Prospecting_800K tiene ACOS 61,9% pero el problema no es la audiencia de intereses, sino el producto que se muestra: IMG_unicas_tribal vende a ticket promedio de $297K — muy por debajo del objetivo de $800K. Se reemplaza por best sellers de tallas grandes (200×290, 240×340, 250×300) que concentran el 68% del revenue de julio con tickets de $750K–$1,7M. En paralelo se activa una audiencia LAL 1% desde la base de compradores del backend que compraron tickets ≥$800K.</div>
+  </div>
+  <div class="act act-now" style="margin-bottom:7px">
+    <div class="act-title"><i class="ti ti-circle-check" style="color:#1D9E75"></i> Mid Tickets — escalar IMG_Dune + IMG_Tejidas, reducir VID_Nature-Collection</div>
+    <div class="act-body">VID_Nature-Collection consume $1,24M (la mayor inversión del mix) con ACOS 50,0%, mientras que IMG_Dune (ACOS 25,6%) e IMG_Tejidas (ACOS 25,0%) tienen la mitad de inversión y mejor eficiencia. Se redistribuye el presupuesto de VID_Nature hacia las dos piezas más eficientes.</div>
+  </div>
+  <div class="act act-now" style="margin-bottom:7px">
+    <div class="act-title"><i class="ti ti-circle-check" style="color:#1D9E75"></i> Catálogo — migrar a Best Sellers + filtrar feed ≥$400K</div>
+    <div class="act-body">RMKT-Intereses muestra todo el catálogo sin filtro (ticket $278K · ACOS 42,4%). Se migra a un catálogo Best Sellers con los 4 modelos de mayor revenue (Moon Light Arena, Yutex Ankh, Sisalo Togo, Yute Nomad) en tallas ≥200×290, con pieza de portada. El feed se filtra a ≥$400K para que el algoritmo no optimice hacia alfombras chicas de bajo ticket.</div>
+  </div>
+  <div class="act act-now">
+    <div class="act-title"><i class="ti ti-circle-check" style="color:#1D9E75"></i> RMKT OpenMix — ampliar ventana 60–90 días + filtrar a mid-high</div>
+    <div class="act-body">RMKT OpenMix tiene ACOS 54,0% con frecuencia alta — la audiencia de 30 días está saturada. Se amplía la ventana a 60–90 días para incorporar más visitantes y se limita el catálogo a productos ≥$400K para que el retargeting muestre solo alfombras de ticket medio-alto.</div>
+  </div>
+</div>
+
+<!-- GOOGLE AR -->
+<div id="opt-pmax" class="card">
+  <div class="st">Google Ads AR — agosto (1–5/8)</div>
+  <table class="t" style="margin-bottom:12px">
+    <thead><tr><th>Campaña</th><th>Inv.</th><th>Compras</th><th>Revenue</th><th>ROAS</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Brand Search</strong><span class="tag">⭐ más eficiente</span></td><td>$132.270</td><td>4</td><td>$2.784.101</td><td><span class="up">21,05</span></td></tr>
+      <tr><td><strong>PMax GeoLocal Sucursales</strong></td><td>$178.254</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr><td><strong>PMax Purchase OpenMix</strong><span class="tag">Sin compras aún</span></td><td>$96.173</td><td>0</td><td>$6.914</td><td><span class="dn">0,07</span></td></tr>
+      <tr><td><strong>PMax Tráfico</strong></td><td>$46.120</td><td>1</td><td>$412.796</td><td><span class="up">8,95</span></td></tr>
+      <tr><td><strong>Video Awareness Geo</strong></td><td>$33.664</td><td>—</td><td>—</td><td>—</td></tr>
+      <tr class="total-row"><td>Total Google</td><td>$486.481</td><td>5</td><td>$3.203.811</td><td>6,59</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Brand Search arranca agosto con ROAS 21,05 — la tendencia se sostiene respecto a julio (ROAS 11,86). PMax Purchase sigue sin convertir bien (0 compras con $96K invertidos) — se recomienda filtrar el feed a tallas ≥160×230 y ticket ≥$400K esta semana. PMax Tráfico con ROAS 8,95 muestra conversiones indirectas saludables.</div>
+</div>
+
+<!-- PRODUCTOS AR -->
+<div class="card">
+  <div class="st">Alfombras por tamaño — julio AR</div>
+  <p style="font-size:12px;color:#888780;margin-bottom:12px">100% del revenue es alfombras. El análisis por tamaño es más relevante que por modelo — las tallas grandes concentran el revenue y el ticket más alto.</p>
+
+  <div class="cat-block">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+      <span style="font-size:12px;font-weight:500">Revenue por rango de precio</span>
+    </div>
+
+    <table class="t">
+      <thead><tr><th>Rango</th><th>Revenue</th><th>Share</th><th>Uds.</th><th>Ticket/u</th><th>Tallas principales</th></tr></thead>
+      <tbody>
+        <tr><td><strong>High (≥$800K)</strong></td><td>$24.064.250</td><td><span class="up">39,2%</span></td><td>23</td><td><span class="up">$1.046.272</span></td><td style="font-size:11px">200×290 · 240×340 · 250×300 · 225×300 — las tallas más grandes</td></tr>
+        <tr><td><strong>Mid ($400K–$800K)</strong></td><td>$19.025.100</td><td>31,0%</td><td>34</td><td>$559.562</td><td style="font-size:11px">200×300 · 200×290 · 160×230 · 240×305 — mix equilibrado</td></tr>
+        <tr><td>Low (&lt;$400K)</td><td>$18.369.300</td><td>29,9%</td><td>90</td><td>$204.103</td><td style="font-size:11px">120×170 · 140×200 · 160×230 · 80×150 — tallas chicas alto volumen</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cat-block">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+      <span style="font-size:12px;font-weight:500">Top tallas por revenue</span>
+    </div>
+    <table class="t">
+      <thead><tr><th>Talla</th><th>Revenue</th><th>Share</th><th>Uds.</th><th>Ticket/u</th></tr></thead>
+      <tbody>
+        <tr><td><strong>200×290</strong></td><td>$11.955.000</td><td><span class="up">19,5%</span></td><td>16</td><td><span class="up">$747.188</span></td></tr>
+        <tr><td><strong>160×230</strong></td><td>$9.905.000</td><td>16,1%</td><td>31</td><td>$319.516</td></tr>
+        <tr><td><strong>240×340</strong></td><td>$7.593.600</td><td>12,4%</td><td>8</td><td><span class="up">$949.200</span></td></tr>
+        <tr><td><strong>200×300</strong></td><td>$7.196.000</td><td>11,7%</td><td>14</td><td>$514.000</td></tr>
+        <tr><td><strong>140×200</strong></td><td>$5.533.000</td><td>9,0%</td><td>22</td><td>$251.500</td></tr>
+        <tr><td><strong>250×300</strong></td><td>$3.225.000</td><td>5,2%</td><td>4</td><td><span class="up">$806.250</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="nb">Las tallas 200×290, 240×340 y 250×300 tienen tickets de $750K–$950K y concentran el 37% del revenue. La propuesta de ajustar High Tickets a tallas grandes se basa en este dato: las personas pagan más por tamaño, no por modelo. El Catálogo Best Sellers debe priorizar estas tallas.</div>
+</div>
+
+<!-- TOP 10 AR -->
+<div class="card">
+  <div class="st">Top 10 productos — agosto (1–5/8)</div>
+  <table class="t">
+    <thead><tr><th>#</th><th>Producto</th><th>Talla</th><th>Uds.</th><th>Ticket/u</th><th>Revenue</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Yutex Ankh</strong><span class="tag">⭐ mayor ticket del mes</span></td><td>300×400</td><td>1</td><td><span class="up">$1.650.000</span></td><td>$1.650.000</td></tr>
+      <tr><td>2</td><td><strong>Kilim Anatolia Sun Kazak</strong></td><td>170×240</td><td>1</td><td><span class="up">$1.410.000</span></td><td>$1.410.000</td></tr>
+      <tr><td>3</td><td><strong>Touch Crema</strong></td><td>200×290</td><td>1</td><td><span class="up">$1.260.000</span></td><td>$1.260.000</td></tr>
+      <tr><td>4</td><td><strong>Patchwork Turco Beige</strong></td><td>170×210</td><td>1</td><td><span class="up">$1.250.000</span></td><td>$1.250.000</td></tr>
+      <tr><td>5</td><td><strong>Rasha Beige & Green</strong></td><td>200×300</td><td>1</td><td>$970.000</td><td>$970.000</td></tr>
+      <tr><td>6</td><td><strong>Sisalo Etnic Natural</strong></td><td>200×290</td><td>1</td><td>$783.000</td><td>$783.000</td></tr>
+      <tr><td>7</td><td><strong>Tamri Ivory</strong></td><td>170×240</td><td>1</td><td>$770.000</td><td>$770.000</td></tr>
+      <tr><td>8</td><td><strong>Maka Natural & Grey</strong></td><td>170×240</td><td>1</td><td>$680.000</td><td>$680.000</td></tr>
+      <tr><td>9</td><td><strong>Dune Acadia Arena</strong></td><td>160×230</td><td>1</td><td>$566.400</td><td>$566.400</td></tr>
+      <tr><td>10</td><td><strong>Sisalo Etnic Natural</strong></td><td>160×230</td><td>1</td><td>$496.800</td><td>$496.800</td></tr>
+    </tbody>
+  </table>
+  <div class="nb" style="margin-top:8px">Los primeros 4 productos de agosto tienen tickets ≥$1,25M — todos tallas ≥170×210. El Yutex Ankh 300×400 lidera con $1,65M. El perfil de compra de agosto confirma que las tallas grandes y los modelos premium son los que traccionan el revenue en los primeros días del mes.</div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--                     MIHRAN MÉXICO                         -->
+<!-- ══════════════════════════════════════════════════════════ -->
+
+<!-- GEO AR -->
+<div class="card">
+  <div class="st">Geo + Branding AR — julio consolidado</div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Sucursal</th><th>Inversión</th><th>Alcance</th><th>Interacciones</th><th>Impresiones</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Arenales</strong></td><td>$791.021</td><td>2.911.369</td><td>211.029</td><td>2.971.809</td></tr>
+      <tr><td><strong>Coronel Díaz</strong></td><td>$445.431</td><td>2.143.733</td><td>3.035</td><td>2.220.526</td></tr>
+      <tr><td><strong>Unicenter</strong></td><td>$334.516</td><td>1.612.934</td><td>1.470</td><td>1.685.391</td></tr>
+      <tr><td><strong>Norcenter</strong></td><td>$309.944</td><td>1.497.534</td><td>2.331</td><td>1.530.902</td></tr>
+      <tr><td><strong>Palmas del Pilar</strong></td><td>$222.487</td><td>1.172.234</td><td>5.929</td><td>1.179.141</td></tr>
+      <tr><td><strong>Pilar</strong></td><td>$134.466</td><td>526.639</td><td>4.936</td><td>555.656</td></tr>
+      <tr><td><strong>Alcorta</strong></td><td>$36.360</td><td>151.045</td><td>6.678</td><td>161.819</td></tr>
+      <tr><td><strong>Google GeoLocal</strong></td><td>$462.816</td><td>188.982</td><td>—</td><td>55.228</td></tr>
+      <tr class="total-row"><td>Total Geo</td><td>$2.737.041</td><td>10.204.470</td><td>235.408</td><td>10.360.472</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Arenales concentra la mayor inversión ($791K) y el mayor volumen de interacciones (211K) — es la sucursal más activa del mix con diferencia. Coronel Díaz y Unicenter le siguen en alcance. Alcorta tiene baja inversión ($36K) pero alta tasa de interacciones (6.678) respecto a su alcance — posible señal de audiencia más comprometida en esa zona.</div>
+</div>
+
+<div class="card">
+  <div class="st">Geo AR — agosto (1–5/8) · Meta + Google consolidado</div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Sucursal</th><th>Inv. Meta</th><th>Inv. Google</th><th>Inv. total</th><th>Alcance / Impr.</th><th>Conv. dirección</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Unicenter</strong><span class="tag">⭐ mayor tracción · CTR 1,72%</span></td><td>—</td><td>$86.218</td><td>$86.218</td><td>21.876 impr</td><td><span class="up">181</span></td></tr>
+      <tr><td><strong>Norcenter</strong><span class="tag">CTR más alto · 1,78%</span></td><td>—</td><td>$76.057</td><td>$76.057</td><td>18.301 impr</td><td><span class="up">116</span></td></tr>
+      <tr><td><strong>Coronel Díaz</strong></td><td>—</td><td>$20.723</td><td>$20.723</td><td>30.128 impr</td><td>22</td></tr>
+      <tr><td><strong>Arenales</strong></td><td>—</td><td>$12.464</td><td>$12.464</td><td>20.334 impr</td><td>15</td></tr>
+      <tr><td><strong>Pilar</strong></td><td>—</td><td>$4.801</td><td>$4.801</td><td>4.298 impr</td><td>7</td></tr>
+      <tr><td><strong>Meta Awareness Geo</strong><span class="tag">Todas las sucursales consolidado</span></td><td>$348.489</td><td>—</td><td>$348.489</td><td>1.883.991 alcance</td><td>—</td></tr>
+      <tr><td><strong>Video Awareness Geo</strong></td><td>—</td><td>$33.664</td><td>$33.664</td><td>35.330 impr</td><td>—</td></tr>
+      <tr class="total-row"><td>Total Geo agosto</td><td>$348.489</td><td>$233.927</td><td>$582.416</td><td></td><td>341</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Inversión total Geo en agosto: $582K en 5 días. Unicenter lidera en conversiones de dirección (181) y Norcenter en CTR (1,78%). Meta Awareness Geo aporta $348K de alcance general (1,88M personas) sin desglose por sucursal en agosto. Google GeoLocal genera 341 conversiones de dirección en total — un indicador fuerte de tráfico hacia las sucursales.</div>
+</div>
+
+<hr class="sep">
+
+<div class="card" style="background:#1D9E75;color:#fff;padding:12px 20px;border:none">
+  <h1 style="color:#fff;font-size:16px;margin:0">Mihran México</h1>
+</div>
+
+<div class="card">
+  <div class="st">Julio consolidado + agosto en curso (MXN)</div>
+  <div class="g g4" style="margin-bottom:10px">
+    <div class="mc">
+      <p class="ml">Facturación julio</p>
+      <p class="mv warn">$185.763 MXN</p>
+      <p class="ms dn">Obj. $407K → 45,6%</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:45.6%;background:#D85A30"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Pedidos · Ticket julio</p>
+      <p class="mv">40</p>
+      <p class="ms">$4.644 MXN ticket</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Inversión julio (Google)</p>
+      <p class="mv">$21.046 MXN</p>
+      <p class="ms">ACOS 11,3% vs backend</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Meta Ads</p>
+      <p class="mv dn">Suspendida</p>
+      <p class="ms">Fan Page en proceso · 7 días para acceso BM</p>
+    </div>
+  </div>
+  <div class="g g3">
+    <div class="mc">
+      <p class="ml">Facturación agosto (1–4/8)</p>
+      <p class="mv">$7.163 MXN</p>
+      <p class="ms">5 pedidos · ticket $1.433 MXN</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Inv. agosto Google</p>
+      <p class="mv">$3.566 MXN</p>
+      <p class="ms">$307.231 ARS</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Obj. agosto</p>
+      <p class="mv">$407K MXN</p>
+      <p class="ms">124 peds · ticket $3.282 MXN</p>
+    </div>
+  </div>
+  <div class="wb">Meta sigue suspendida — la nueva Fan Page está en proceso de vinculación al Business Manager con un plazo de 7 días para que se haga efectivo el acceso, luego se conecta al IG. Solo opera Google con Brand Search (ACOS 12,9%) y PMax (ACOS 238,7%). En agosto se incorpora mayor foco en campañas de conquista en Google para generar posicionamiento y demanda traccionando de competidores alineados.</div>
+</div>
+
+<div class="card">
+  <div class="st">Google Ads MX — julio (MXN)</div>
+  <table class="t" style="margin-bottom:12px">
+    <thead><tr><th>Campaña</th><th>Inv. (ARS)</th><th>Inv. (MXN)</th><th>Compras</th><th>Revenue</th><th>ROAS</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Brand Search</strong><span class="tag">⭐ único canal eficiente</span></td><td>$805.739</td><td>$9.354</td><td>10</td><td>$6.241.037</td><td><span class="up">7,74</span></td></tr>
+      <tr><td><strong>PMax Purchase OpenMix</strong></td><td>$1.007.185</td><td>$11.693</td><td>3</td><td>$421.988</td><td><span class="dn">0,42</span></td></tr>
+      <tr class="total-row"><td>Total Google MX</td><td>$1.812.924</td><td>$21.046</td><td>13</td><td>$6.663.025</td><td>3,67</td></tr>
+    </tbody>
+  </table>
+  <div class="act act-now">
+    <div class="act-title"><i class="ti ti-circle-check" style="color:#1D9E75"></i> MX — mayor foco en conquista + sostener Brand Search</div>
+    <div class="act-body">Brand Search ACOS 12,9% es el canal que sostiene la operación MX. PMax con ACOS 238,7% no convierte bien con el feed actual. Para agosto se incorporan campañas de conquista en Google para generar posicionamiento y capturar demanda de competidores alineados, mientras se resuelve la reactivación de Meta.</div>
+  </div>
+</div>
+
+</div>
+
+<script>
+Chart.defaults.font.family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
+Chart.defaults.font.size=11;
+const gc='rgba(0,0,0,0.05)',tc='#888780';
+const labels=['1/7','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','1/8','2','3','4','5'];
+const julData=[3562000,2302000,1560000,768930,5577410,2028600,4327200,1479000,2019130,1344400,2047500,1808000,1041393,1884146,1862400,1043200,1071000,2176000,1154940,1690900,945512,480000,2095300,1960000,1270000,2425900,1726630,2230040,2776444,2029500,3414000,0,0,0,0,0];
+const augData=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,504528,4719800,1414000,7062200,480000];
+const objLine=Array(36).fill(1612903);
+new Chart(document.getElementById('chartAR'),{
+  type:'bar',
+  data:{labels,datasets:[
+    {label:'Julio',data:julData,backgroundColor:'rgba(24,95,165,0.7)',borderRadius:4,order:3},
+    {label:'Agosto',data:augData,backgroundColor:'rgba(29,158,117,0.7)',borderRadius:4,order:2},
+    {label:'Obj. diario ago $1,61M',data:objLine,type:'line',borderColor:'#D85A30',borderDash:[6,4],borderWidth:2,pointRadius:0,fill:false,order:1}
+  ]},
+  options:{
+    responsive:true,
+    interaction:{mode:'index',intersect:false},
+    plugins:{legend:{labels:{color:tc,boxWidth:12,padding:16}},tooltip:{callbacks:{label:ctx=>` $${(ctx.parsed.y/1000000).toFixed(2)}M`}}},
+    scales:{
+      x:{ticks:{color:tc,maxRotation:45,font:{size:10}},grid:{color:gc},stacked:true},
+      y:{ticks:{color:tc,callback:v=>'$'+(v/1000000).toFixed(1)+'M'},grid:{color:gc},stacked:true}
+    }
+  }
+});
+</script>
+</body>
+</html>
