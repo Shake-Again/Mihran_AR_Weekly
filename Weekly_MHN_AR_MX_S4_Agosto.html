@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen Ejecutivo Agosto 2026 — Mihran Argentina</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f3ee;color:#1a1a18;font-size:15px;line-height:1.7;padding:2rem 1rem}
+.page{max-width:880px;margin:0 auto}
+.card{background:#fff;border-radius:16px;border:.5px solid #e0dfd8;padding:1.75rem 2rem;margin-bottom:1.1rem}
+h1{font-size:22px;font-weight:500;margin-bottom:4px}
+.subtitle{font-size:13px;color:#888780}
+.st{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#888780;margin:0 0 12px;border-bottom:.5px solid #e0dfd8;padding-bottom:6px}
+.g{display:grid;gap:10px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.mc{background:#f4f3ee;border-radius:8px;padding:12px 14px}
+.ml{font-size:11px;color:#888780;margin:0 0 3px}.mv{font-size:20px;font-weight:500;margin:0}.ms{font-size:11px;color:#888780;margin:3px 0 0}
+.up{color:#1D9E75}.warn{color:#BA7517}.dn{color:#D85A30}
+.nb{background:#E1F5EE;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;line-height:1.6;margin-top:10px}
+.wb{background:#FAEEDA;border-left:3px solid #BA7517;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;line-height:1.6;margin-top:10px}
+table.t{width:100%;border-collapse:collapse;font-size:12px}
+table.t th{text-align:left;color:#888780;font-weight:500;padding:5px 8px 7px;border-bottom:.5px solid #e0dfd8;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+table.t td{padding:7px 8px;border-bottom:.5px solid #e0dfd8;vertical-align:middle}
+table.t tr:last-child td{border-bottom:none}
+.total-row td{background:#f9f9f7;font-weight:500}
+.tag{font-size:10px;color:#888780;display:block;margin-top:1px}
+strong{font-weight:500}
+.prog-wrap{background:#e0dfd8;border-radius:4px;height:6px;margin-top:6px;overflow:hidden}
+.prog-bar{height:100%;border-radius:4px}
+.week-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.week-card{background:#f4f3ee;border-radius:10px;padding:14px}
+.week-title{font-size:11px;font-weight:500;color:#888780;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+.week-row{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:.5px solid #e0dfd8}
+.week-row:last-child{border-bottom:none}
+.week-label{color:#888780}
+.hero-week{background:linear-gradient(135deg,#1D9E75,#0F6E56);border-radius:14px;padding:20px 24px;color:#fff;margin-bottom:12px}
+.hero-week .amount{font-size:32px;font-weight:700}
+.hero-week .label{font-size:12px;opacity:0.85;margin-top:2px}
+@media(max-width:620px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}.week-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="card">
+  <h1>Mihran Argentina — Resumen ejecutivo Agosto 2026</h1>
+  <p class="subtitle">Mes cerrado (31/8) · Foco en la última semana (23–31/8) · Meta + Google + Backend</p>
+</div>
+
+<!-- KPIs -->
+<div class="card">
+  <div class="st">Resultados del mes — cierre agosto</div>
+  <div class="g g4" style="margin-bottom:10px">
+    <div class="mc">
+      <p class="ml">Facturación backend</p>
+      <p class="mv up">$89,4M</p>
+      <p class="ms up">101,6% del objetivo ($88M) ✓</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:100%;background:#1D9E75"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Pedidos · Ticket</p>
+      <p class="mv">137</p>
+      <p class="ms up">$652.465 ticket promedio</p>
+    </div>
+    <div class="mc">
+      <p class="ml">ACOS performance</p>
+      <p class="mv up">14,41%</p>
+      <p class="ms">Inv. performance $12,88M</p>
+    </div>
+    <div class="mc">
+      <p class="ml">ACOS total</p>
+      <p class="mv up">19,43%</p>
+      <p class="ms">Inv. total $17,37M</p>
+    </div>
+  </div>
+  <div class="nb">Mihran Argentina cierra agosto por encima del objetivo — $89,4M vs $88M planificado (101,6%). El mes tuvo un arranque sólido, un bache en la tercera semana, y una recuperación fuerte en los últimos 9 días que terminó de asegurar el objetivo.</div>
+</div>
+
+<!-- ═══ FOCO ÚLTIMA SEMANA ═══ -->
+<div class="card">
+  <div class="st">🎯 Foco — última semana del mes (23–31/8)</div>
+  <div class="hero-week">
+    <div class="amount">$32,1M</div>
+    <div class="label">35,9% de toda la facturación de agosto en 9 días</div>
+  </div>
+  <div class="g g4" style="margin-bottom:10px">
+    <div class="mc">
+      <p class="ml">Pedidos</p>
+      <p class="mv up">55</p>
+      <p class="ms">40,1% de los pedidos del mes</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Ticket promedio</p>
+      <p class="mv">$582.970</p>
+      <p class="ms">Levemente bajo la media del mes</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Inv. performance</p>
+      <p class="mv">$4,23M</p>
+      <p class="ms">32,8% de la inv. perf. del mes</p>
+    </div>
+    <div class="mc">
+      <p class="ml">ACOS performance</p>
+      <p class="mv up">13,18%</p>
+      <p class="ms up">El 2° mejor de las 4 semanas</p>
+    </div>
+  </div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Día</th><th>Facturación</th><th>Pedidos</th></tr></thead>
+    <tbody>
+      <tr><td>Domingo 23/8</td><td>$2.880.400</td><td>4</td></tr>
+      <tr><td>Lunes 24/8</td><td>$1.177.000</td><td>2</td></tr>
+      <tr><td>Martes 25/8</td><td class="up">$7.492.000</td><td>6</td></tr>
+      <tr><td>Miércoles 26/8</td><td>$619.544</td><td>3</td></tr>
+      <tr><td>Jueves 27/8</td><td>$2.630.960</td><td>5</td></tr>
+      <tr><td><strong>Viernes 28/8</strong></td><td class="up">$5.206.200</td><td>11</td></tr>
+      <tr><td><strong>Sábado 29/8</strong></td><td class="up">$5.351.360</td><td>11</td></tr>
+      <tr><td>Domingo 30/8</td><td>$4.077.300</td><td>6</td></tr>
+      <tr><td>Lunes 31/8 (cierre)</td><td>$2.628.562</td><td>7</td></tr>
+      <tr class="total-row"><td>Total 9 días</td><td>$32.063.326</td><td>55</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">El fin de semana del 28-29/8 (viernes y sábado) concentró el mayor volumen de pedidos del período — 22 de los 55 pedidos de la semana (40%), aunque el pico de facturación individual fue el martes 25/8 ($7,49M en solo 6 pedidos, ticket muy alto). Esta última semana fue la que definió el cierre del mes por encima del objetivo: sin ella, agosto hubiera cerrado en $57,3M (65,2% del objetivo).</div>
+</div>
+
+<!-- GRÁFICO -->
+<div class="card">
+  <div class="st">Facturación diaria — agosto completo</div>
+  <canvas id="chartMH" style="max-height:200px"></canvas>
+  <p style="font-size:11px;color:#888780;margin-top:6px">Los últimos 9 días (23-31/8, en verde) corresponden a la semana de foco de este resumen</p>
+</div>
+
+<!-- SEMANAL -->
+<div class="card">
+  <div class="st">Transición semanal — Agosto completo</div>
+  <div class="week-grid">
+    <div class="week-card">
+      <div class="week-title">1–8/8</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span>$21,5M</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span>32</span></div>
+      <div class="week-row"><span class="week-label">Ticket prom.</span><span>$671.241</span></div>
+      <div class="week-row"><span class="week-label">Inv. perf.</span><span>$2,99M</span></div>
+      <div class="week-row"><span class="week-label">ACOS-P</span><span class="up">13,92%</span></div>
+    </div>
+    <div class="week-card">
+      <div class="week-title">9–15/8</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span>$22,8M</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span>28</span></div>
+      <div class="week-row"><span class="week-label">Ticket prom.</span><span class="up">$814.511</span></div>
+      <div class="week-row"><span class="week-label">Inv. perf.</span><span>$2,84M</span></div>
+      <div class="week-row"><span class="week-label">ACOS-P</span><span class="up">12,45%</span></div>
+    </div>
+    <div class="week-card">
+      <div class="week-title">16–22/8</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span class="dn">$13,0M</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span>22</span></div>
+      <div class="week-row"><span class="week-label">Ticket prom.</span><span class="dn">$592.654</span></div>
+      <div class="week-row"><span class="week-label">Inv. perf.</span><span>$2,82M</span></div>
+      <div class="week-row"><span class="week-label">ACOS-P</span><span class="dn">21,66%</span></div>
+    </div>
+    <div class="week-card" style="background:#E1F5EE">
+      <div class="week-title" style="color:#0F6E56">23–31/8 ⭐</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span class="up">$32,1M</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span class="up">55</span></div>
+      <div class="week-row"><span class="week-label">Ticket prom.</span><span>$582.970</span></div>
+      <div class="week-row"><span class="week-label">Inv. perf.</span><span class="up">$4,23M</span></div>
+      <div class="week-row"><span class="week-label">ACOS-P</span><span class="up">13,18%</span></div>
+    </div>
+  </div>
+  <div class="wb">La semana 16-22 fue el bache del mes (ACOS 21,66%, la única por encima del 20%) con el ticket promedio más bajo (592K) — cayó tanto la cantidad de pedidos como el valor de cada uno, mientras la inversión se mantuvo estable (~$2,82M), señal de que la demanda bajó más que el esfuerzo de pauta. La última semana recuperó el ACOS a pesar de tener el ticket promedio más bajo de las 4 semanas ($583K) — compensó con volumen (55 pedidos, el doble que la semana floja) y una inversión performance 49% mayor ($4,23M) que sí logró traccionar proporcionalmente más facturación.</div>
+</div>
+
+<!-- META ADS -->
+<div class="card">
+  <div class="st">Meta Ads — mes completo vs última semana</div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Campaña</th><th>Inv. mes</th><th>ROAS mes</th><th>Inv. últ. semana</th><th>ROAS últ. semana</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Catálogo</strong></td><td>$2.126.473</td><td class="up">2,70</td><td>$699.613</td><td class="up">3,50</td></tr>
+      <tr><td><strong>Low Tickets</strong></td><td>$1.869.154</td><td class="up">2,21</td><td>$598.864</td><td class="up">2,52</td></tr>
+      <tr><td><strong>High Tickets</strong></td><td>$3.268.545</td><td class="warn">1,33</td><td>$981.519</td><td class="warn">1,27</td></tr>
+      <tr><td><strong>Mid Tickets</strong></td><td>$2.837.818</td><td class="warn">1,03</td><td>$853.178</td><td class="up">1,83</td></tr>
+      <tr><td><strong>RMKT Tickets</strong></td><td>$762.621</td><td class="up">4,16</td><td>$240.611</td><td class="up">2,65</td></tr>
+      <tr><td><strong>RMKT OpenMix</strong></td><td>$120.079</td><td class="dn">0</td><td>$120.079</td><td class="dn">0</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Catálogo mejoró su ROAS en la última semana (2,70 → 3,50) y Mid Tickets tuvo una recuperación notable (1,03 → 1,83) — dos señales que explican parte de la mejora de ACOS. High Tickets se mantuvo débil en ambos períodos (ROAS ~1,3) — la campaña de mayor inversión del mes con el retorno más bajo entre las de purchase.</div>
+</div>
+
+<!-- GOOGLE -->
+<div class="card">
+  <div class="st">Google Ads — mes completo vs última semana</div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Campaña</th><th>Inv. mes</th><th>Compras mes</th><th>Revenue mes</th><th>Inv. últ. semana</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Search Brand</strong></td><td>$1.126.735</td><td>16,9</td><td>$11.028.423</td><td>$458.673</td></tr>
+      <tr><td><strong>PMax GeoLocal Sucursales</strong></td><td>$1.151.362</td><td>0,1</td><td>$24.099</td><td>$311.411</td></tr>
+      <tr><td><strong>PMax Purchase OpenMix</strong></td><td>$768.535</td><td>2,2</td><td>$719.714</td><td>$273.158</td></tr>
+      <tr><td><strong>PMax Tráfico</strong></td><td>$351.839</td><td>2,1</td><td>$3.923.996</td><td>$125.589</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Search Brand sigue siendo, por lejos, el canal más eficiente del mix: $11,03M de revenue con $1,13M invertidos (ROAS ~9,8×) en el mes completo. En la última semana generó $949K de revenue directo con 3,07 compras — se mantiene sólido incluso en el cierre.</div>
+</div>
+
+<!-- TIERS Y TOP 10 -->
+<div class="card">
+  <div class="st">Alfombras por tier — agosto completo</div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Tier</th><th>Revenue</th><th>Share mes</th><th>Uds.</th></tr></thead>
+    <tbody>
+      <tr><td><strong>High (≥$800K)</strong></td><td>$48.196.500</td><td class="up">53,6%</td><td>38</td></tr>
+      <tr><td><strong>Mid ($400K–$800K)</strong></td><td>$27.238.180</td><td>30,3%</td><td>48</td></tr>
+      <tr><td>Low (&lt;$400K)</td><td>$14.423.600</td><td>16,1%</td><td>72</td></tr>
+    </tbody>
+  </table>
+
+  <div class="st">Desglose de High Ticket — 2 instancias de ticket alto</div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Sub-tier</th><th>Revenue</th><th>Share del mes</th><th>Share de High</th><th>Uds.</th><th>Ticket/u</th></tr></thead>
+    <tbody>
+      <tr><td><strong>High Premium</strong><span class="tag">≥$1,25M</span></td><td class="up">$26.305.000</td><td class="up">29,3%</td><td>54,6%</td><td>17</td><td class="up">$1.547.353</td></tr>
+      <tr><td><strong>High Estándar</strong><span class="tag">$800K–$1,25M</span></td><td>$21.891.500</td><td>24,4%</td><td>45,4%</td><td>21</td><td>$1.042.452</td></tr>
+      <tr class="total-row"><td>Total High</td><td>$48.196.500</td><td>53,6%</td><td>100%</td><td>38</td><td>$1.268.329</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">El High Ticket no es un bloque homogéneo: <strong>High Premium (≥$1,25M) genera más revenue que High Estándar</strong> con menos unidades (17 vs 21) — el ticket promedio de ese sub-tramo ($1,55M) casi duplica al de High Estándar ($1,04M). Sisalo Togo Canela (ambas tallas) y Yutex Ankh son los diseños que mejor performan en el tramo Premium — sugiere que el driver de 12 CSI está funcionando particularmente bien para empujar hacia el escalón más alto de precio, no solo hacia "cualquier" High Ticket.</div>
+
+  <div class="st" style="margin-top:16px">¿Compran caro por el tamaño o por el modelo?</div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Diseño</th><th>Talla chica que vendió</th><th>Talla grande que vendió</th><th>Conclusión</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Kilim</strong></td><td>110×170 → $1.208.000</td><td>170×240 → $1.445.500</td><td><span class="tag">El modelo es caro</span></td></tr>
+      <tr><td><strong>Patchwork</strong></td><td>80×298 → $872.000</td><td>170×210 → $1.250.000</td><td><span class="tag">El modelo es caro</span></td></tr>
+      <tr><td><strong>Cobra</strong></td><td>170×120 → $688.000</td><td>200×290 → $2.620.800</td><td><span class="tag">Mixto (salta con tamaño)</span></td></tr>
+      <tr><td><strong>Sisalo</strong></td><td>80×150 → $60.000</td><td>300×400 → $1.701.000</td><td><span class="tag">Es el tamaño</span></td></tr>
+      <tr><td><strong>Yutex</strong></td><td>50×80 → $40.300</td><td>300×400 → $1.650.000</td><td><span class="tag">Es el tamaño</span></td></tr>
+    </tbody>
+  </table>
+  <div class="nb"><strong>Depende del diseño — hay 2 grupos claramente distintos:</strong><br><br>
+  <strong>Kilim y Patchwork son caros por el modelo en sí:</strong> incluso en su talla más chica (110×170 y 80×298) ya venden por encima de $800K–1,2M. No necesitan una talla grande para ser High Ticket.<br><br>
+  <strong>Sisalo y Yutex son caros por el tamaño:</strong> el mismo diseño vale $40-85K en talla chica (50×80, 80×150) y salta a $1,2-1,7M en talla grande (300×400) — el precio lo pone casi enteramente la superficie, no el diseño.<br><br>
+  <strong>Cobra es un caso mixto:</strong> ya parte relativamente caro en talla chica ($688K) pero pega un salto fuerte en talla grande ($2,62M) — ahí probablemente combinan ambos efectos.<br><br>
+  Sisalo es el diseño líder en volumen dentro de High Ticket — llega ahí casi exclusivamente porque el cliente elige la talla grande, no porque el diseño tenga un precio base alto.</div>
+
+  <div class="st">Top 10 productos — agosto</div>
+  <table class="t">
+    <thead><tr><th>#</th><th>Producto</th><th>Uds.</th><th>Sub-tier</th><th>Revenue</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Sisalo Togo Canela 240×340</strong></td><td>3</td><td><span class="tag">Premium</span></td><td>$3.855.000</td></tr>
+      <tr><td>2</td><td><strong>Sisalo Etnic Natural 240×340</strong></td><td>3</td><td><span class="tag">Estándar</span></td><td>$3.488.200</td></tr>
+      <tr><td>3</td><td><strong>Sisalo Togo Canela 300×400</strong></td><td>2</td><td><span class="tag">Premium</span></td><td>$3.402.000</td></tr>
+      <tr><td>4</td><td><strong>Kilim Anatolia Sun Kazak 170×240</strong></td><td>2</td><td><span class="tag">Premium</span></td><td>$2.891.000</td></tr>
+      <tr><td>5</td><td><strong>Yasmin Bone 300×400</strong></td><td>1</td><td><span class="tag">Premium</span></td><td>$2.696.000</td></tr>
+      <tr><td>6</td><td><strong>Cobra Medallón 706 200×290</strong></td><td>1</td><td><span class="tag">Premium</span></td><td>$2.620.800</td></tr>
+      <tr><td>7</td><td><strong>Touch Crema 200×290</strong></td><td>2</td><td><span class="tag">Premium</span></td><td>$2.520.000</td></tr>
+      <tr><td>8</td><td><strong>Yutex Ankh 240×340</strong></td><td>2</td><td><span class="tag">Premium</span></td><td>$2.509.000</td></tr>
+      <tr><td>9</td><td><strong>Sisalo Siena 240×340</strong></td><td>2</td><td><span class="tag">Premium</span></td><td>$2.448.000</td></tr>
+      <tr><td>10</td><td><strong>Sisalo Etnic Natural 160×230</strong></td><td>5</td><td>Low/Mid</td><td>$2.242.800</td></tr>
+    </tbody>
+  </table>
+  <div class="nb" style="margin-top:8px">7 de los top 10 productos del mes pertenecen al sub-tramo High Premium — confirma que la demanda de mayor valor no se está diluyendo, sino que se concentra en un puñado de diseños específicos (Sisalo en sus distintas variantes, Yutex Ankh).</div>
+</div>
+
+<!-- GEO -->
+<div class="card">
+  <div class="st">Geo — inversión Meta por sucursal, agosto completo</div>
+  <table class="t">
+    <thead><tr><th>Sucursal</th><th>Inversión</th><th>Alcance</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Arenales</strong></td><td>$514.849</td><td>2.469.161</td></tr>
+      <tr><td><strong>Coronel Díaz</strong></td><td>$423.072</td><td>2.070.679</td></tr>
+      <tr><td><strong>Unicenter</strong></td><td>$316.781</td><td>1.508.386</td></tr>
+      <tr><td><strong>Norcenter</strong></td><td>$300.541</td><td>1.485.192</td></tr>
+      <tr><td><strong>Palmas del Pilar</strong></td><td>$210.806</td><td>1.084.015</td></tr>
+      <tr><td><strong>Pilar</strong></td><td>$125.935</td><td>518.213</td></tr>
+      <tr><td><strong>Alcorta</strong></td><td>$18.328</td><td>80.956</td></tr>
+      <tr class="total-row"><td>Total</td><td>$1.910.312</td><td>9.216.602</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Arenales lidera en inversión y alcance, consistente con el patrón de otros meses. Alcorta tiene una participación muy menor en el mix geo.</div>
+</div>
+
+</div>
+
+<script>
+Chart.defaults.font.family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
+Chart.defaults.font.size=11;
+const gc='rgba(0,0,0,0.05)',tc='#888780';
+const labels=['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31'];
+const fact=[472000,4719800,1414000,7062200,4152000,1944000,1360456,355240,6084428,1814000,3641720,2731568,189600,2747200,5597800,949600,1956000,4464000,1830882,824316,2308000,705600,2880400,1177000,7492000,619544,2630960,5206200,5351360,4077300,2628562];
+const colors=fact.map((v,i)=>i>=22?'rgba(29,158,117,0.85)':'rgba(24,95,165,0.7)');
+new Chart(document.getElementById('chartMH'),{
+  type:'bar',
+  data:{labels,datasets:[{label:'Facturación diaria',data:fact,backgroundColor:colors,borderRadius:4}]},
+  options:{
+    responsive:true,
+    interaction:{mode:'index',intersect:false},
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>` $${(ctx.parsed.y/1000000).toFixed(2)}M`}}},
+    scales:{
+      x:{ticks:{color:tc,font:{size:10}},grid:{color:gc}},
+      y:{ticks:{color:tc,callback:v=>'$'+(v/1000000).toFixed(1)+'M'},grid:{color:gc}}
+    }
+  }
+});
+</script>
+</body>
+</html>
