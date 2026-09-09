@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mihran Argentina — Resumen Ejecutivo Septiembre</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f3ee;color:#1a1a18;font-size:15px;line-height:1.7;padding:2rem 1rem}
+.page{max-width:880px;margin:0 auto}
+.card{background:#fff;border-radius:16px;border:.5px solid #e0dfd8;padding:1.75rem 2rem;margin-bottom:1.1rem}
+h1{font-size:22px;font-weight:500;margin-bottom:4px}
+.subtitle{font-size:13px;color:#888780}
+.st{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#888780;margin:0 0 12px;border-bottom:.5px solid #e0dfd8;padding-bottom:6px}
+.g{display:grid;gap:10px}.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.mc{background:#f4f3ee;border-radius:8px;padding:12px 14px}
+.ml{font-size:11px;color:#888780;margin:0 0 3px}.mv{font-size:20px;font-weight:500;margin:0}.ms{font-size:11px;color:#888780;margin:3px 0 0}
+.up{color:#1D9E75}.warn{color:#BA7517}.dn{color:#D85A30}
+.nb{background:#E1F5EE;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;line-height:1.6;margin-top:10px}
+.wb{background:#FAEEDA;border-left:3px solid #BA7517;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;line-height:1.6;margin-top:10px}
+.rb{background:#fde8e4;border-left:3px solid #D85A30;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;line-height:1.6;margin-top:10px}
+table.t{width:100%;border-collapse:collapse;font-size:12px}
+table.t th{text-align:left;color:#888780;font-weight:500;padding:5px 8px 7px;border-bottom:.5px solid #e0dfd8;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
+table.t td{padding:7px 8px;border-bottom:.5px solid #e0dfd8;vertical-align:middle}
+table.t tr:last-child td{border-bottom:none}
+.total-row td{background:#f9f9f7;font-weight:500}
+.tag{font-size:10px;color:#888780;display:block;margin-top:1px}
+strong{font-weight:500}
+.prog-wrap{background:#e0dfd8;border-radius:4px;height:8px;margin-top:6px;overflow:hidden}
+.prog-bar{height:100%;border-radius:4px}
+.week-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.week-card{background:#f4f3ee;border-radius:10px;padding:14px}
+.week-title{font-size:11px;font-weight:500;color:#888780;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em}
+.week-row{display:flex;justify-content:space-between;font-size:12px;padding:3px 0;border-bottom:.5px solid #e0dfd8}
+.week-row:last-child{border-bottom:none}
+.week-label{color:#888780}
+.hero-week{background:linear-gradient(135deg,#1D9E75,#0F6E56);border-radius:14px;padding:20px 24px;color:#fff;margin-bottom:12px}
+.hero-week .amount{font-size:32px;font-weight:700}
+.hero-week .label{font-size:12px;opacity:0.85;margin-top:2px}
+.checklist{display:flex;flex-direction:column;gap:5px}
+.cl-item{display:flex;align-items:flex-start;gap:12px;background:#f4f3ee;border-radius:10px;padding:11px 14px}
+.cl-icon{font-size:17px;flex-shrink:0;margin-top:1px}
+.cl-label{font-size:12px;font-weight:500;margin-bottom:1px}
+.cl-sub{font-size:11px;color:#888780}
+.cl-tag{display:inline-block;font-size:10px;padding:1px 6px;border-radius:8px;font-weight:500;margin-left:6px}
+.cl-now{background:#E1F5EE;color:#0F6E56}
+.cl-next{background:#E6F1FB;color:#185FA5}
+.cl-warn{background:#FAEEDA;color:#854F0B}
+.act{border-radius:10px;padding:13px 15px;margin-bottom:7px}
+.act-now{background:#E1F5EE;border-left:4px solid #1D9E75}
+.act-warn{background:#FAEEDA;border-left:4px solid #BA7517}
+.act-title{font-size:12px;font-weight:500;margin-bottom:4px;display:flex;align-items:center;gap:6px}
+.act-body{font-size:12px;line-height:1.6;color:#3a3a38}
+@media(max-width:700px){.g4{grid-template-columns:repeat(2,1fr)}.week-grid{grid-template-columns:1fr}}
+</style></head><body><div class="page">
+
+<div class="card">
+  <h1>Mihran Argentina — Resumen ejecutivo Septiembre</h1>
+  <p class="subtitle">Primera semana (1–4/9) · Meta + Google · 100% alfombras</p>
+</div>
+
+<!-- ═══ OBJETIVO ═══ -->
+<div class="card">
+  <div class="st">🎯 Objetivo vs Obtenido — Septiembre</div>
+  <div class="g g4" style="margin-bottom:10px">
+    <div class="mc">
+      <p class="ml">Objetivo del mes</p>
+      <p class="mv">$140M</p>
+      <p class="ms">▲59% vs los $88M de agosto</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Facturado (Sept 1-4)</p>
+      <p class="mv">$12,0M</p>
+      <p class="ms warn">8,6% del objetivo</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:8.6%;background:#BA7517"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Mes transcurrido</p>
+      <p class="mv">13,3%</p>
+      <p class="ms">4 de 30 días</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:13.3%;background:#888780"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Ritmo vs. mes transcurrido</p>
+      <p class="mv dn">-4,8pp</p>
+      <p class="ms dn">Por debajo del ritmo lineal</p>
+    </div>
+  </div>
+  <div class="wb"><strong>Arranque por debajo del ritmo necesario:</strong> con el promedio diario actual ($3,0M/día), septiembre proyecta cerrar en <strong>$89,99M — 64,3% del objetivo de $140M</strong>. El objetivo subió fuerte vs agosto (+59%) mientras el ritmo de facturación de estos primeros 4 días se mantuvo similar al de agosto — normal en un arranque de mes, pero la brecha ya es significativa.</div>
+</div>
+
+<!-- INVERSIÓN OBJETIVO -->
+<div class="card">
+  <div class="st">Inversión objetivo de septiembre</div>
+  <div class="g g3" style="margin-bottom:10px">
+    <div class="mc">
+      <p class="ml">Performance</p>
+      <p class="mv">$18.000.000</p>
+      <p class="ms">11,2% ejecutado ($2,02M)</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:11.2%;background:#1D9E75"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Inversión total</p>
+      <p class="mv">$26.707.268</p>
+      <p class="ms">9,3% ejecutado ($2,48M)</p>
+      <div class="prog-wrap"><div class="prog-bar" style="width:9.3%;background:#1D9E75"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Branding (implícito)</p>
+      <p class="mv">$8.707.268</p>
+      <p class="ms">Total − Performance</p>
+    </div>
+  </div>
+  <div class="nb">El ritmo de inversión (9,3-11,2% del plan) va por detrás del mes transcurrido (13,3%) — hay margen de presupuesto disponible para acelerar en las próximas semanas.</div>
+</div>
+
+<!-- ═══ RESULTADOS DE LA SEMANA ═══ -->
+<div class="card">
+  <div class="st">Resultados — Sept 1-4</div>
+  <div class="hero-week">
+    <div class="amount">$12,0M</div>
+    <div class="label">Facturación · 32 pedidos · 4 días</div>
+  </div>
+  <div class="g g4" style="margin-bottom:10px">
+    <div class="mc"><p class="ml">Pedidos</p><p class="mv">32</p><p class="ms">8/día promedio</p></div>
+    <div class="mc"><p class="ml">Ticket promedio</p><p class="mv dn">$374.947</p><p class="ms dn">vs $583-593K en agosto</p></div>
+    <div class="mc"><p class="ml">ACOS performance</p><p class="mv up">16,85%</p><p class="ms">Inv. performance $2,02M</p></div>
+    <div class="mc"><p class="ml">ACOS total</p><p class="mv">20,71%</p><p class="ms">Inv. total $2,48M</p></div>
+  </div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Día</th><th>Facturación</th><th>Pedidos</th></tr></thead>
+    <tbody>
+      <tr><td>Martes 1/9</td><td>$1.915.920</td><td>5</td></tr>
+      <tr><td><strong>Miércoles 2/9</strong></td><td class="up">$4.219.773</td><td>12</td></tr>
+      <tr><td><strong>Jueves 3/9</strong></td><td class="up">$4.635.116</td><td>13</td></tr>
+      <tr><td>Viernes 4/9</td><td>$1.227.500</td><td>2</td></tr>
+      <tr class="total-row"><td>Total 4 días</td><td>$11.998.309</td><td>32</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Miércoles y jueves concentran el 74% de la facturación y el 78% de los pedidos — dos días muy fuertes en el medio de la semana, con arranque y cierre más moderados. Vale identificar qué impulsó esos 2 días (piezas, promoción puntual) para replicarlo.</div>
+</div>
+
+<!-- COMPARATIVA SEMANAL -->
+<div class="card">
+  <div class="st">Comparativa — últimas semanas de agosto vs arranque de septiembre</div>
+  <div class="week-grid">
+    <div class="week-card">
+      <div class="week-title">Ago 16-22</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span>$13,0M</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span>22</span></div>
+      <div class="week-row"><span class="week-label">Ticket</span><span>$592.654</span></div>
+    </div>
+    <div class="week-card">
+      <div class="week-title">Ago 23-31</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span class="up">$32,1M</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span class="up">55</span></div>
+      <div class="week-row"><span class="week-label">Ticket</span><span>$582.970</span></div>
+    </div>
+    <div class="week-card" style="background:#FAEEDA">
+      <div class="week-title" style="color:#854F0B">Sept 1-4 ⭐</div>
+      <div class="week-row"><span class="week-label">Facturación</span><span>$12,0M</span></div>
+      <div class="week-row"><span class="week-label">Pedidos</span><span>32</span></div>
+      <div class="week-row"><span class="week-label">Ticket</span><span class="dn">$374.947</span></div>
+    </div>
+  </div>
+  <div class="wb"><strong>Insight:</strong> septiembre arranca con más pedidos por día que agosto (8/día vs ~6/día) pero ticket promedio 36-38% más bajo. El volumen está sano, pero si el mix no se corrige hacia productos de mayor ticket, va a costar mucho más llegar a los $140M solo con más pedidos — necesitaría casi duplicar el ritmo de pedidos diarios para compensar.</div>
+</div>
+
+<!-- ═══ ACCIONABLES ═══ -->
+<div class="card">
+  <div class="st">✅ Accionables — qué encaramos esta semana</div>
+  <div class="checklist">
+    <div class="cl-item">
+      <span class="cl-icon">📈</span>
+      <div>
+        <div class="cl-label">Acelerar la ejecución de inversión hacia el plan <span class="cl-tag cl-warn">Prioridad</span></div>
+        <div class="cl-sub">Solo 9,3-11,2% del presupuesto ejecutado vs 13,3% del mes transcurrido. Con $140M de objetivo (+59% vs agosto), sostener el ritmo de inversión de agosto no va a alcanzar — hay que escalar antes de mitad de mes</div>
+      </div>
+    </div>
+    <div class="cl-item">
+      <span class="cl-icon">🎯</span>
+      <div>
+        <div class="cl-label">Reforzar el mix hacia High/Mid Ticket para recuperar el ticket promedio <span class="cl-tag cl-now">Esta semana</span></div>
+        <div class="cl-sub">El ticket cayó 36-38% vs agosto. Evaluar si conviene sumar o reforzar un driver comercial (tipo 12 CSI) que empuje tallas grandes, como se hizo en meses anteriores</div>
+      </div>
+    </div>
+    <div class="cl-item">
+      <span class="cl-icon">⚡</span>
+      <div>
+        <div class="cl-label">Escalar Low Tickets y RMKT Tickets — mejor ROAS de la semana <span class="cl-tag cl-now">Esta semana</span></div>
+        <div class="cl-sub">ROAS 4,78 y 4,90 respectivamente, con presupuesto todavía chico ($273K y $112K). Buen candidato para absorber parte del presupuesto de performance sin ejecutar</div>
+      </div>
+    </div>
+    <div class="cl-item">
+      <span class="cl-icon">🔍</span>
+      <div>
+        <div class="cl-label">Sostener Search Brand — sigue siendo el canal más consistente <span class="cl-tag cl-next">Monitorear</span></div>
+        <div class="cl-sub">3,44 compras y $521,7K de revenue con $268K invertidos. Se propone mantener el presupuesto actual sin cambios</div>
+      </div>
+    </div>
+    <div class="cl-item">
+      <span class="cl-icon">🔎</span>
+      <div>
+        <div class="cl-label">Revisar High Tickets y Catálogo — ROAS más bajo del set <span class="cl-tag cl-next">Monitorear</span></div>
+        <div class="cl-sub">ROAS 1,44 y 1,12 con muestra chica (2-3 compras). Antes de recortar presupuesto, esperar 1-2 semanas más de datos para confirmar si es tendencia o ruido estadístico</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- META -->
+<div class="card">
+  <div class="st">Meta Ads — Sept 1-4</div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Campaña</th><th>Inv.</th><th>Comp.</th><th>Revenue</th><th>ROAS</th></tr></thead>
+    <tbody>
+      <tr><td><strong>High Tickets</strong></td><td>$401.878</td><td>3</td><td>$579.800</td><td class="warn">1,44</td></tr>
+      <tr><td><strong>Mid Tickets</strong></td><td>$382.508</td><td>3</td><td>$871.000</td><td class="up">2,28</td></tr>
+      <tr><td><strong>Catálogo</strong></td><td>$358.112</td><td>2</td><td>$400.000</td><td class="warn">1,12</td></tr>
+      <tr><td><strong>Low Tickets</strong></td><td>$273.132</td><td>3</td><td>$1.306.000</td><td class="up">4,78</td></tr>
+      <tr><td><strong>RMKT Tickets</strong></td><td>$111.524</td><td>1</td><td>$547.000</td><td class="up">4,90</td></tr>
+      <tr><td>Awareness GEO</td><td>$126.921</td><td>0</td><td>—</td><td>—</td></tr>
+      <tr><td>RMKT OpenMix</td><td>$84.446</td><td>0</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <div class="act act-now" style="margin-bottom:7px">
+    <div class="act-title"><i class="ti ti-circle-check" style="color:#1D9E75"></i> Low Tickets y RMKT Tickets — escalar presupuesto</div>
+    <div class="act-body">ROAS 4,78 y 4,90 respectivamente, los más altos del mix con inversión todavía chica. Candidatos naturales para absorber presupuesto adicional.</div>
+  </div>
+  <div class="act act-warn">
+    <div class="act-title"><i class="ti ti-alert-triangle" style="color:#BA7517"></i> High Tickets y Catálogo — monitorear antes de decidir</div>
+    <div class="act-body">ROAS 1,44 y 1,12 con muestra chica (2-3 compras en 4 días). No recortar todavía — esperar más datos antes de mover presupuesto.</div>
+  </div>
+</div>
+
+<!-- GOOGLE -->
+<div class="card">
+  <div class="st">Google Ads — Sept 1-4</div>
+  <table class="t" style="margin-bottom:10px">
+    <thead><tr><th>Campaña</th><th>Inv.</th><th>Clics</th><th>Compras</th><th>Revenue</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Search Brand</strong></td><td>$268.317</td><td>1.181</td><td class="up">3,44</td><td>$521.660</td></tr>
+      <tr><td><strong>PMax GeoLocal Sucursales</strong></td><td>$154.141</td><td>937</td><td>—</td><td>—</td></tr>
+      <tr><td><strong>PMax Purchase OpenMix</strong></td><td>$142.242</td><td>305</td><td>0,05</td><td>$19.869</td></tr>
+      <tr><td><strong>PMax Tráfico</strong></td><td>$71.519</td><td>201</td><td>1,00</td><td>$211.000</td></tr>
+      <tr><td>Video Awareness Geo</td><td>$31.469</td><td>2</td><td>—</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Search Brand sigue siendo el canal más sólido — 3,44 compras y $521,7K de revenue con $268K invertidos. PMax Tráfico aportó una conversión inesperada de buen valor ($211K) pese a estar orientada a tráfico, no a compra — vale revisar si conviene sumarle objetivo de conversión.</div>
+</div>
+
+<!-- TIERS Y TOP 10 -->
+<div class="card">
+  <div class="st">Alfombras por tier — septiembre (datos disponibles)</div>
+  <p style="font-size:11px;color:#888780;margin-bottom:10px">El backend agrupa items por mes completo — este desglose corresponde a los registros de septiembre cargados a la fecha (~$29,6M, más allá de los 4 días puntuales de la semana).</p>
+  <table class="t" style="margin-bottom:12px">
+    <thead><tr><th>Tier</th><th>Revenue</th><th>Share</th><th>Uds.</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Mid ($400K–$800K)</strong></td><td>$14.696.180</td><td class="up">49,6%</td><td>26</td></tr>
+      <tr><td>Low (&lt;$400K)</td><td>$8.242.109</td><td>27,8%</td><td>50</td></tr>
+      <tr><td><strong>High (≥$800K)</strong></td><td>$6.667.260</td><td>22,5%</td><td>7</td></tr>
+    </tbody>
+  </table>
+
+  <div class="st">Top productos — septiembre (datos disponibles)</div>
+  <table class="t">
+    <thead><tr><th>#</th><th>Producto</th><th>Uds.</th><th>Revenue</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>Yute Organic Natural 240×300</strong></td><td>2</td><td>$1.906.760</td></tr>
+      <tr><td>2</td><td><strong>Himalaya Vea 240×340</strong></td><td>2</td><td>$1.498.500</td></tr>
+      <tr><td>3</td><td><strong>Himalaya Vea 200×290</strong></td><td>3</td><td>$1.467.000</td></tr>
+      <tr><td>4</td><td><strong>Shaggy Bruma Marroquí</strong></td><td>2</td><td>$1.338.000</td></tr>
+      <tr><td>5</td><td><strong>Dune Acadia Gris Plomo</strong></td><td>1</td><td>$1.179.000</td></tr>
+    </tbody>
+  </table>
+  <div class="rb"><strong>Insight clave:</strong> Mid Ticket lidera el mix (49,6%) — un cambio de patrón respecto al dominio de High Ticket que veníamos viendo en agosto (impulsado ahí por el driver de 12 CSI). Esto explica directamente la caída del ticket promedio de la semana. Yute e Himalaya son las líneas de mejor arranque — evaluar si conviene reforzarlas con pauta dedicada mientras dure la tracción.</div>
+</div>
+
+<!-- GEO -->
+<div class="card">
+  <div class="st">Geo — inversión Meta por sucursal, Sept 1-4</div>
+  <table class="t">
+    <thead><tr><th>Sucursal</th><th>Inversión</th><th>Alcance</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Coronel Díaz</strong></td><td>$28.520</td><td>148.233</td></tr>
+      <tr><td><strong>Arenales</strong></td><td>$24.605</td><td>128.060</td></tr>
+      <tr><td><strong>Unicenter</strong></td><td>$20.684</td><td>106.862</td></tr>
+      <tr><td><strong>Norcenter</strong></td><td>$19.702</td><td>101.348</td></tr>
+      <tr><td><strong>Palmas del Pilar</strong></td><td>$13.687</td><td>76.333</td></tr>
+      <tr><td><strong>Alcorta</strong></td><td>$10.842</td><td>52.558</td></tr>
+      <tr><td><strong>Pilar</strong></td><td>$8.882</td><td>34.195</td></tr>
+    </tbody>
+  </table>
+  <div class="nb">Coronel Díaz lidera en inversión y alcance esta semana — cambio respecto a Arenales, que venía liderando en agosto. Vale confirmar si es una redistribución intencional o un efecto de la semana corta.</div>
+</div>
+
+</div></body></html>
