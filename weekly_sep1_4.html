@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Sep 1–4 — Mihran Argentina</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f4f3ee;color:#1a1a18;font-size:16px;line-height:1.7;padding:2rem 1rem}
+.page{max-width:820px;margin:0 auto}
+.card{background:#fff;border-radius:16px;border:.5px solid #e0dfd8;padding:2rem 2.5rem;margin-bottom:1.25rem}
+h1{font-size:22px;font-weight:500;margin-bottom:4px;color:#1a1a18}
+.subtitle{font-size:13px;color:#888780;margin:0}
+.st{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#888780;margin:0 0 12px;border-bottom:.5px solid #e0dfd8;padding-bottom:6px}
+.g{display:grid;gap:10px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.mc{background:#f4f3ee;border-radius:8px;padding:12px 14px}
+.ml{font-size:11px;color:#888780;margin:0 0 4px}
+.mv{font-size:20px;font-weight:500;color:#1a1a18;margin:0}
+.ms{font-size:11px;color:#888780;margin:4px 0 0}
+.up{color:#1D9E75}.warn{color:#BA7517}.dn{color:#D85A30}
+.fr{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.fl{font-size:12px;color:#888780;width:200px;flex-shrink:0}
+.fw{flex:1;background:#f4f3ee;border-radius:4px;height:22px;overflow:hidden}
+.fb{height:100%;border-radius:4px}
+.nb{background:#f4f3ee;border-left:3px solid #1D9E75;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:#1a1a18;line-height:1.6;margin-top:10px}
+.wb{background:#f4f3ee;border-left:3px solid #BA7517;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:#1a1a18;line-height:1.6;margin-top:10px}
+.db{background:#f4f3ee;border-left:3px solid #D85A30;border-radius:0 8px 8px 0;padding:10px 14px;font-size:13px;color:#1a1a18;line-height:1.6;margin-top:10px}
+.bul{display:flex;gap:8px;margin-bottom:8px;font-size:13px;color:#1a1a18;line-height:1.5}
+.bul i{margin-top:3px;flex-shrink:0;font-size:16px}
+table.t{width:100%;border-collapse:collapse;font-size:12px}
+table.t th{text-align:left;color:#888780;font-weight:500;padding:5px 8px 7px;border-bottom:.5px solid #e0dfd8}
+table.t td{padding:6px 8px;border-bottom:.5px solid #e0dfd8;color:#1a1a18;vertical-align:top}
+table.t tr:last-child td{border-bottom:none}
+.badge{display:inline-block;font-size:10px;padding:2px 7px;border-radius:20px;font-weight:500}
+.b-blue{background:#E6F1FB;color:#185FA5}
+.b-teal{background:#E1F5EE;color:#0F6E56}
+.b-amber{background:#FAEEDA;color:#854F0B}
+.b-coral{background:#FAECE7;color:#993C1D}
+.b-gray{background:#F1EFE8;color:#5F5E5A}
+.b-purple{background:#F0EAFB;color:#6B3FA0}
+.b-green{background:#E1F5EE;color:#0A5C3F}
+.tag{font-size:10px;color:#888780;display:block;margin-top:1px}
+strong{font-weight:500}
+hr.div{border:none;border-top:.5px solid #e0dfd8;margin:1.2rem 0}
+.progress-wrap{background:#e0dfd8;border-radius:4px;height:6px;margin-top:8px;overflow:hidden}
+.progress-bar{height:100%;border-radius:4px}
+canvas{max-height:200px}
+@media(max-width:600px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="card">
+  <h1>Reporte semanal — 1 al 4 de septiembre 2026</h1>
+  <p class="subtitle">Mihran Argentina &nbsp;·&nbsp; 4 días transcurridos de 30 (13,3%) &nbsp;·&nbsp; 26 días restantes &nbsp;·&nbsp; Facturación y transacciones: backend &nbsp;·&nbsp; Período: lunes a jueves (Semana 1)</p>
+</div>
+
+<!-- INVERSIÓN & FACTURACIÓN -->
+<div class="card">
+  <div class="st">Inversión & facturación — semana 1</div>
+  <div class="g g4" style="margin-bottom:12px">
+    <div class="mc">
+      <p class="ml">Facturación backend</p>
+      <p class="mv">$12,0M</p>
+      <p class="ms warn">Obj. $140M → 8,6%</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Pedidos</p>
+      <p class="mv">32</p>
+      <p class="ms warn">Obj. 215 → 14,9%</p>
+    </div>
+    <div class="mc">
+      <p class="ml">Ticket promedio</p>
+      <p class="mv dn">$374.947</p>
+      <p class="ms">Obj. $651.163 <span class="dn">↓ −42,4%</span></p>
+    </div>
+    <div class="mc">
+      <p class="ml">Inversión total</p>
+      <p class="mv">$2,5M</p>
+      <p class="ms">Meta + Google</p>
+    </div>
+  </div>
+  <div class="g g2">
+    <div class="mc"><p class="ml">ACOS total</p><p class="mv warn">20,7%</p><p class="ms">Inv. total / facturación</p></div>
+    <div class="mc"><p class="ml">ACOS performance</p><p class="mv warn">17,4%</p><p class="ms">Inv. perfo / facturación</p></div>
+  </div>
+  <div class="wb" style="margin-top:10px">Con solo 4 días transcurridos (13,3% del mes), la facturación lleva el 8,6% del objetivo mensual de $140M. El ACOS total (20,7%) está levemente por encima del objetivo de septiembre (19,1%). <strong>El ticket promedio ($374.947) es el punto más crítico</strong>: está un 42,4% por debajo del objetivo de $651.163 — septiembre tiene un objetivo de ticket significativamente más alto que agosto, traccionado por un mix de producto más premium. El miércoles y jueves concentraron el 73% de la facturación de la semana.</div>
+</div>
+
+<!-- % CUMPLIMIENTO DE OBJETIVOS -->
+<div class="card">
+  <div class="st">% de cumplimiento de objetivos — semana 1 / 4 días (13,3% del mes)</div>
+  <div class="g g4" style="margin-bottom:14px">
+    <div class="mc">
+      <p class="ml">Facturación</p>
+      <p class="mv dn">8,6%</p>
+      <p class="ms">$12,0M de $140M objetivo</p>
+      <div class="progress-wrap" style="margin-top:8px"><div class="progress-bar" style="width:8.6%;background:#D85A30"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Pedidos</p>
+      <p class="mv warn">14,9%</p>
+      <p class="ms">32 de 215 objetivo</p>
+      <div class="progress-wrap" style="margin-top:8px"><div class="progress-bar" style="width:14.9%;background:#BA7517"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Ticket promedio</p>
+      <p class="mv dn">57,6%</p>
+      <p class="ms">$374.947 vs $651.163 obj.</p>
+      <div class="progress-wrap" style="margin-top:8px"><div class="progress-bar" style="width:57.6%;background:#D85A30"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Inversión ejecutada</p>
+      <p class="mv up">9,3%</p>
+      <p class="ms">$2,5M de $26,7M objetivo</p>
+      <div class="progress-wrap" style="margin-top:8px"><div class="progress-bar" style="width:9.3%;background:#1D9E75"></div></div>
+    </div>
+  </div>
+  <div class="g g2" style="margin-bottom:10px">
+    <div class="mc">
+      <p class="ml">ACOS total — objetivo septiembre</p>
+      <p class="mv dn">20,7% <span style="font-size:13px;font-weight:400">vs obj. 19,1%</span></p>
+      <p class="ms">+1,6pp sobre objetivo (mayor costo relativo)</p>
+      <div class="progress-wrap" style="margin-top:8px"><div class="progress-bar" style="width:91%;background:#D85A30"></div></div>
+    </div>
+    <div class="mc">
+      <p class="ml">Unidades vendidas</p>
+      <p class="mv warn">20,5%</p>
+      <p class="ms">53 u de 258 objetivo septiembre</p>
+      <div class="progress-wrap" style="margin-top:8px"><div class="progress-bar" style="width:20.5%;background:#BA7517"></div></div>
+    </div>
+  </div>
+  <div class="wb">Con 4 días de 30 (13,3% del mes), la <strong>facturación (8,6%) y el ACOS (por encima del objetivo) son los puntos a trabajar</strong>. Los pedidos (14,9%) van por encima del tiempo proporcional, lo que es positivo en volumen. El <strong>ticket promedio ($374.947 vs obj. $651.163) es el gap más crítico</strong>: septiembre tiene un objetivo de ticket significativamente más alto que agosto — es necesario impulsar producto premium en las semanas 2 y 3. La inversión está ejecutada al ritmo correcto (9,3% del presupuesto mensual).</div>
+</div>
+
+<!-- COMPARATIVA SEMANA A SEMANA -->
+<div class="card">
+  <div class="st">Comparativa semana a semana — agosto vs septiembre</div>
+  <p style="font-size:11px;color:#888780;margin-bottom:12px">S3: lun 18 al dom 24/8 (7 días) · S4: lun 25 al dom 31/8 (7 días) · S1 Sep: mar 1 al vie 4/9 (4 días — período incompleto)</p>
+  <table class="t">
+    <thead>
+      <tr>
+        <th>Métrica</th>
+        <th style="text-align:right">S3 Ago (18–24/8)</th>
+        <th style="text-align:right">S4 Ago (25–31/8)</th>
+        <th style="text-align:right">S1 Sep (1–4/9)</th>
+        <th style="text-align:right">S4 → S1 Sep</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Pedidos</strong></td>
+        <td style="text-align:right">22</td>
+        <td style="text-align:right">49</td>
+        <td style="text-align:right">32 <span class="tag">4 días</span></td>
+        <td style="text-align:right"><span class="dn">−34,7%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Facturación</strong></td>
+        <td style="text-align:right">$14,2M</td>
+        <td style="text-align:right">$28,0M</td>
+        <td style="text-align:right">$12,0M <span class="tag">4 días</span></td>
+        <td style="text-align:right"><span class="dn">−57,2%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Facturación / día</strong></td>
+        <td style="text-align:right">$2,03M</td>
+        <td style="text-align:right">$4,00M</td>
+        <td style="text-align:right"><span class="warn">$3,00M</span></td>
+        <td style="text-align:right"><span class="dn">−25,1%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Ticket promedio</strong></td>
+        <td style="text-align:right">$645.009</td>
+        <td style="text-align:right">$571.550</td>
+        <td style="text-align:right"><span class="dn">$374.947</span></td>
+        <td style="text-align:right"><span class="dn">−34,4%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Inversión total</strong></td>
+        <td style="text-align:right">$3,96M</td>
+        <td style="text-align:right">$4,32M</td>
+        <td style="text-align:right">$2,48M <span class="tag">4 días</span></td>
+        <td style="text-align:right"><span class="up">↓ −42,5%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Inversión / día</strong></td>
+        <td style="text-align:right">$565.229</td>
+        <td style="text-align:right">$617.207</td>
+        <td style="text-align:right"><span class="up">$621.214</span></td>
+        <td style="text-align:right"><span class="up">+0,6%</span></td>
+      </tr>
+      <tr>
+        <td><strong>ACOS</strong></td>
+        <td style="text-align:right"><span class="dn">27,9%</span></td>
+        <td style="text-align:right"><span class="up">15,4%</span></td>
+        <td style="text-align:right"><span class="warn">20,7%</span></td>
+        <td style="text-align:right"><span class="dn">+5,3pp</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="wb" style="margin-top:10px"><strong>La comparación directa con S4 no es estrictamente fair</strong>: S1 Sep tiene solo 4 días (vs 7 de S4). Normalizando por día, la facturación diaria cayó de $4,0M en S4 a $3,0M en S1 Sep (−25%). El ACOS empeoró 5 pp respecto a la mejor semana de agosto — esperable en arranque de campaña con nuevos creativos. El ticket bajó fuerte: S4 cerró a $571.550 y S1 Sep arranca en $374.947, señal de que el mix de semana 1 está inclinado a alfombras de menor precio. La inversión diaria se mantuvo estable ($621K/día), lo que indica que la caída en facturación es de demanda/mix, no de falta de presupuesto.</div>
+</div>
+
+<hr class="div" style="margin:0">
+
+<!-- GRÁFICOS -->
+<div class="card">
+  <div class="st">Facturación e inversión diaria — semana 1</div>
+  <canvas id="chartFactInv" style="max-height:220px;margin-bottom:4px"></canvas>
+  <p style="font-size:11px;color:#888780;margin-top:6px">Barras: facturación diaria backend (eje izq.) · Línea: inversión diaria total (eje der.)</p>
+
+  <div style="margin-top:22px">
+    <div class="st">Ticket promedio diario vs objetivo $651.163</div>
+    <canvas id="chartTicket" style="max-height:180px"></canvas>
+    <p style="font-size:11px;color:#888780;margin-top:6px">Línea roja punteada: objetivo de ticket $651.163 — todos los días por debajo</p>
+  </div>
+</div>
+
+<!-- DÍA A DÍA -->
+<div class="card">
+  <div class="st">Análisis día a día — backend</div>
+  <table class="t">
+    <thead><tr><th>Día</th><th>Pedidos</th><th>Facturación</th><th>Ticket prom.</th><th>Inversión</th><th>ACOS día</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Mar 1/9</strong></td>
+        <td>5</td>
+        <td>$1.915.920</td>
+        <td><span class="dn">$383.184</span></td>
+        <td>$590.538</td>
+        <td><span class="dn">30,8%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Mié 2/9</strong></td>
+        <td>12</td>
+        <td>$4.219.773</td>
+        <td><span class="dn">$351.648</span></td>
+        <td>$649.548</td>
+        <td><span class="up">15,4%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Jue 3/9</strong></td>
+        <td>13</td>
+        <td>$4.635.116</td>
+        <td><span class="dn">$356.547</span></td>
+        <td>$625.563</td>
+        <td><span class="up">13,5%</span></td>
+      </tr>
+      <tr>
+        <td><strong>Vie 4/9</strong></td>
+        <td>2</td>
+        <td>$1.227.500</td>
+        <td><span class="warn">$613.750</span></td>
+        <td>$619.206</td>
+        <td><span class="dn">50,5%</span></td>
+      </tr>
+      <tr style="background:#f9f9f7;font-weight:500">
+        <td>TOTAL semana</td>
+        <td>32</td>
+        <td>$11.998.309</td>
+        <td><span class="warn">$374.947</span></td>
+        <td>$2.484.855</td>
+        <td><span class="warn">20,7%</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="nb" style="margin-top:10px">El <strong>miércoles 3/9 fue el mejor día</strong> de la semana en volumen (13 pedidos, $4,6M). El <strong>viernes 4/9 tuvo solo 2 pedidos</strong> aunque con el ticket más alto de la semana ($613.750), con ACOS del 50,5% por el bajo volumen de conversión ese día. Miércoles y jueves registraron el mejor ACOS de la semana (15,4% y 13,5%) — son los días con mayor relación inversión/retorno.</div>
+</div>
+
+<hr class="div" style="margin:0">
+
+<!-- CAMPAÑAS META -->
+<div class="card">
+  <div class="st">Campañas Meta Ads — semana 1 (1–4 sep)</div>
+  <table class="t">
+    <thead><tr><th>Campaña</th><th>Objetivo</th><th>Inversión</th><th>Alcance</th><th>Compras</th><th>Revenue</th><th>ROAS</th><th>Ticket</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Low Tickets</strong><span class="tag">SH_MH_FB_Purchase_Low_Tickets</span></td>
+        <td><span class="badge b-teal">Purchase</span></td>
+        <td>$273.132</td><td>19.906</td><td>3</td><td>$1.306.000</td>
+        <td><span class="up" style="font-weight:500">4,78</span></td><td>$435.333</td>
+      </tr>
+      <tr>
+        <td><strong>RMKT Tickets</strong><span class="tag">SH_MH_FB_Purchase_RMKT_Tickets</span></td>
+        <td><span class="badge b-teal">Purchase RMKT</span></td>
+        <td>$111.524</td><td>9.797</td><td>1</td><td>$547.000</td>
+        <td><span class="up" style="font-weight:500">4,90</span></td><td>$547.000</td>
+      </tr>
+      <tr>
+        <td><strong>Mid Tickets</strong><span class="tag">SH_MH_FB_Purchase_Mid_Tickets</span></td>
+        <td><span class="badge b-blue">Purchase</span></td>
+        <td>$382.508</td><td>26.851</td><td>3</td><td>$871.000</td>
+        <td><span class="warn" style="font-weight:500">2,28</span></td><td>$290.333</td>
+      </tr>
+      <tr>
+        <td><strong>High Tickets</strong><span class="tag">SH_MH_FB_Purchase_High_Tickets</span></td>
+        <td><span class="badge b-blue">Purchase</span></td>
+        <td>$401.878</td><td>42.883</td><td>3</td><td>$579.800</td>
+        <td><span class="warn" style="font-weight:500">1,44</span></td><td>$193.267</td>
+      </tr>
+      <tr>
+        <td><strong>Catálogo</strong><span class="tag">SH_MH_FB_Purchase_Catalogo</span></td>
+        <td><span class="badge b-blue">Purchase</span></td>
+        <td>$358.112</td><td>26.495</td><td>2</td><td>$400.000</td>
+        <td><span class="dn" style="font-weight:500">1,12</span></td><td>$200.000</td>
+      </tr>
+      <tr>
+        <td><strong>RMKT OpenMix</strong><span class="tag">SH_MH_FB_Purchase_RMKT_OpenMix</span></td>
+        <td><span class="badge b-gray">Purchase RMKT</span></td>
+        <td>$84.446</td><td>1.448</td><td>0</td><td>—</td>
+        <td><span class="dn" style="font-weight:500">—</span></td><td>—</td>
+      </tr>
+      <tr>
+        <td><strong>Awareness GEO</strong><span class="tag">SH_MH_FB_Awareness_Geo</span></td>
+        <td><span class="badge b-amber">Awareness</span></td>
+        <td>$126.921</td><td>647.589</td><td>—</td><td>—</td><td>—</td><td>—</td>
+      </tr>
+      <tr>
+        <td><strong>Tráfico Web</strong><span class="tag">SH_MH_FB_Trafico_Web</span></td>
+        <td><span class="badge b-gray">Tráfico</span></td>
+        <td>$44.460</td><td>35.516</td><td>—</td><td>—</td><td>—</td><td>—</td>
+      </tr>
+      <tr style="background:#f9f9f7;font-weight:500">
+        <td colspan="4" style="color:#888780;font-size:11px">Total campañas purchase (sin RMKT OpenMix)</td>
+        <td>12</td><td>$3.703.800</td><td><span class="warn">2,30</span></td><td>$308.650</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="wb" style="margin-top:10px"><strong>Low Tickets sorprende con el mejor ROAS (4,78)</strong> junto con RMKT Tickets (4,90) — ambas impulsadas por el creativo de categoría Yute/Sisal en SALE. <strong>High Tickets y Catálogo tienen ROAS bajo</strong> (1,44 y 1,12), lo que sugiere que en semana 1 con la nueva promo las audiencias aún están calibrando. El ROAS general de Meta (2,30) es el más bajo de los meses anteriores — esperable en el arranque de una campaña de sale con nuevos creativos.</div>
+
+  <div style="margin-top:20px">
+    <div class="st">Creatividades Meta — con conversiones (1–4 sep)</div>
+    <table class="t">
+      <thead><tr><th>Anuncio</th><th>Campaña</th><th>Inv.</th><th>Compras</th><th>Revenue</th><th>ROAS</th><th>Ticket</th><th>CTR</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>IMG_Meilland-Guarda 200x200<br><span style="font-size:10px">SALE 12CSI 50OFF 28-08</span></strong><span class="tag">⭐ Mejor ROAS — producto específico</span></td>
+          <td><span class="badge b-blue">Mid Tkt</span></td>
+          <td>$76.224</td><td>1</td><td>$524.000</td>
+          <td><span class="up" style="font-weight:500">6,87</span></td><td>$524.000</td><td>2,46%</td>
+        </tr>
+        <tr>
+          <td><strong>IMG_Yute-Sisal SALE copia</strong><span class="tag">Mayor volumen — 3 compras</span></td>
+          <td><span class="badge b-teal">Low Tkt</span></td>
+          <td>$227.683</td><td>3</td><td>$1.306.000</td>
+          <td><span class="up" style="font-weight:500">5,74</span></td><td>$435.333</td><td>2,26%</td>
+        </tr>
+        <tr>
+          <td><strong>IMG_Yute-Sisal SALE (original)</strong></td>
+          <td><span class="badge b-gray">RMKT Tkt</span></td>
+          <td>$261.081</td><td>2</td><td>$758.000</td>
+          <td><span class="warn" style="font-weight:500">2,90</span></td><td>$379.000</td><td>3,00%</td>
+        </tr>
+        <tr>
+          <td><strong>CATALOGO SALE Genérico</strong></td>
+          <td><span class="badge b-gray">RMKT Mix</span></td>
+          <td>$442.558</td><td>2</td><td>$400.000</td>
+          <td><span class="dn" style="font-weight:500">0,90</span></td><td>$200.000</td><td>1,52%</td>
+        </tr>
+        <tr>
+          <td><strong>IMG_Himalaya-Vea SALE</strong></td>
+          <td><span class="badge b-amber">High Tkt</span></td>
+          <td>$190.822</td><td>2</td><td>$251.800</td>
+          <td><span class="dn" style="font-weight:500">1,32</span></td><td>$125.900</td><td>1,87%</td>
+        </tr>
+        <tr>
+          <td><strong>VID_silky_01-07-2026</strong></td>
+          <td><span class="badge b-amber">High Tkt</span></td>
+          <td>$172.340</td><td>1</td><td>$328.000</td>
+          <td><span class="warn" style="font-weight:500">1,90</span></td><td>$328.000</td><td>2,74%</td>
+        </tr>
+        <tr>
+          <td><strong>IMG_Dune_7-7-2026</strong></td>
+          <td><span class="badge b-blue">Mid Tkt</span></td>
+          <td>$102.277</td><td>1</td><td>$136.000</td>
+          <td><span class="dn" style="font-weight:500">1,33</span></td><td>$136.000</td><td>1,59%</td>
+        </tr>
+        <tr style="background:#f9f9f7;font-weight:500">
+          <td colspan="3" style="color:#888780;font-size:11px">Total ads con compras (7 creatividades)</td>
+          <td>12</td><td>$3.703.800</td><td><span class="warn">2,51</span></td><td>$308.650</td><td>—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="nb" style="margin-top:10px">Los creativos de <strong>SALE lanzados el 28/8 son los protagonistas de la semana</strong>. El formato de imagen de producto específico (Meilland Guarda, ROAS 6,87) supera al catálogo genérico (ROAS 0,90). Los creativos de categoría Yute/Sisal concentran el 55% de las compras de Meta — confirma la fuerte demanda de fibras naturales al inicio de la temporada otoño.</div>
+  </div>
+</div>
+
+<!-- CAMPAÑAS GOOGLE -->
+<div class="card">
+  <div class="st">Campañas Google Ads — semana 1 (1–4 sep)</div>
+  <table class="t">
+    <thead><tr><th>Campaña</th><th>Objetivo</th><th>Inversión</th><th>Clics</th><th>Compras reales</th><th>Revenue real</th><th>ROAS</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Search Brand</strong><span class="tag">SH_MH_GG_Search_Purchase_Brand</span></td>
+        <td><span class="badge b-blue">Purchase</span></td>
+        <td>$268.317</td><td>1.181</td><td>3,44</td><td>$521.660</td>
+        <td><span class="warn" style="font-weight:500">1,94</span></td>
+      </tr>
+      <tr>
+        <td><strong>PMax OpenMix</strong><span class="tag">SH_MH_GG_PMax_Purchase_OpenMix</span></td>
+        <td><span class="badge b-blue">Purchase</span></td>
+        <td>$142.242</td><td>305</td><td>0,05</td><td>$19.869</td>
+        <td><span class="dn" style="font-weight:500">0,14</span></td>
+      </tr>
+      <tr>
+        <td><strong>PMax Tráfico</strong><span class="tag">SH_MH_GG_PMax_Trafico</span></td>
+        <td><span class="badge b-gray">Tráfico</span></td>
+        <td>$71.519</td><td>201</td><td>1,00</td><td>$211.000</td>
+        <td><span class="warn" style="font-weight:500">2,95</span></td>
+      </tr>
+      <tr>
+        <td><strong>PMax GeoLocal</strong><span class="tag">SH_MH_GG_PMax_GeoLocal_Sucursales</span></td>
+        <td><span class="badge b-amber">Geo</span></td>
+        <td>$154.141</td><td>937</td><td>—</td><td>—</td><td>—</td>
+      </tr>
+      <tr>
+        <td><strong>Video Awareness Geo</strong><span class="tag">SH_MH_GG_Video_Awareness_Geo</span></td>
+        <td><span class="badge b-purple">Awareness</span></td>
+        <td>$31.469</td><td>2</td><td>—</td><td>—</td><td>—</td>
+      </tr>
+      <tr style="background:#f9f9f7;font-weight:500">
+        <td colspan="4" style="color:#888780;font-size:11px">Total Google performance</td>
+        <td>4,49</td><td>$752.529</td><td><span class="warn">1,83</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="wb" style="margin-top:10px"><strong>Brand Search (ROAS 1,94)</strong> es el canal más eficiente de Google aunque el ROAS es bajo comparado con meses anteriores — semana 1 de sale con audiencias todavía calentando. <strong>PMax OpenMix (ROAS 0,14)</strong> prácticamente sin conversiones reales con $142K de inversión — merece revisión urgente o reducción de presupuesto en favor de Brand. PMax Tráfico generó 1 compra real a $211K con ROAS de 2,95 que es positivo.</div>
+  <p style="font-size:11px;color:#888780;margin-top:8px">Revenue calculado con conversión "Compra (Evento de Google Analytics purchase)". Compras fraccionarias se deben al modelo de atribución multicanal de Google.</p>
+</div>
+
+<!-- GEO -->
+<div class="card">
+  <div class="st">Campañas Geo — awareness y tráfico a punto de venta</div>
+  <div class="g g4" style="margin-bottom:14px">
+    <div class="mc"><p class="ml">Inversión Geo Meta</p><p class="mv">$126.922</p><p class="ms">SH_MH_FB_Awareness_Geo</p></div>
+    <div class="mc"><p class="ml">Alcance total Meta Geo</p><p class="mv">647.589</p><p class="ms">personas únicas (suma adsets)</p></div>
+    <div class="mc"><p class="ml">Frecuencia promedio</p><p class="mv up">1,02</p><p class="ms">contactos por persona</p></div>
+    <div class="mc"><p class="ml">CPM Meta Geo</p><p class="mv up">$191</p><p class="ms">muy eficiente</p></div>
+  </div>
+
+  <div class="st" style="margin-top:4px">Desglose por sucursal — Meta Awareness Geo (1–4 sep)</div>
+  <table class="t">
+    <thead>
+      <tr>
+        <th>Sucursal (AdSet)</th>
+        <th style="text-align:right">Inversión</th>
+        <th style="text-align:right">Alcance</th>
+        <th style="text-align:right">Frecuencia</th>
+        <th style="text-align:right">Clics</th>
+        <th style="text-align:right">Impresiones</th>
+        <th style="text-align:right">CPM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Coronel Díaz</strong></td>
+        <td style="text-align:right">$28.520</td>
+        <td style="text-align:right">148.233</td>
+        <td style="text-align:right">1,03</td>
+        <td style="text-align:right">15</td>
+        <td style="text-align:right">154.152</td>
+        <td style="text-align:right">$185</td>
+      </tr>
+      <tr>
+        <td><strong>Arenales</strong></td>
+        <td style="text-align:right">$24.605</td>
+        <td style="text-align:right">128.060</td>
+        <td style="text-align:right">1,01</td>
+        <td style="text-align:right"><strong class="up">142</strong></td>
+        <td style="text-align:right">129.543</td>
+        <td style="text-align:right">$190</td>
+      </tr>
+      <tr>
+        <td><strong>Unicenter</strong></td>
+        <td style="text-align:right">$20.684</td>
+        <td style="text-align:right">106.862</td>
+        <td style="text-align:right">1,02</td>
+        <td style="text-align:right">22</td>
+        <td style="text-align:right">110.251</td>
+        <td style="text-align:right">$188</td>
+      </tr>
+      <tr>
+        <td><strong>Norcenter</strong></td>
+        <td style="text-align:right">$19.702</td>
+        <td style="text-align:right">101.348</td>
+        <td style="text-align:right">1,01</td>
+        <td style="text-align:right">13</td>
+        <td style="text-align:right">104.281</td>
+        <td style="text-align:right">$189</td>
+      </tr>
+      <tr>
+        <td><strong>Palmas del Pilar</strong></td>
+        <td style="text-align:right">$13.687</td>
+        <td style="text-align:right">76.333</td>
+        <td style="text-align:right">1,01</td>
+        <td style="text-align:right">1</td>
+        <td style="text-align:right">76.999</td>
+        <td style="text-align:right">$178</td>
+      </tr>
+      <tr>
+        <td><strong>Alcorta</strong></td>
+        <td style="text-align:right">$10.842</td>
+        <td style="text-align:right">52.558</td>
+        <td style="text-align:right">1,05</td>
+        <td style="text-align:right">24</td>
+        <td style="text-align:right">55.156</td>
+        <td style="text-align:right">$197</td>
+      </tr>
+      <tr>
+        <td><strong>Pilar</strong></td>
+        <td style="text-align:right">$8.882</td>
+        <td style="text-align:right">34.195</td>
+        <td style="text-align:right">1,02</td>
+        <td style="text-align:right">0</td>
+        <td style="text-align:right">35.434</td>
+        <td style="text-align:right">$251</td>
+      </tr>
+      <tr style="background:#f9f9f7;font-weight:500">
+        <td>TOTAL Meta Geo</td>
+        <td style="text-align:right">$126.922</td>
+        <td style="text-align:right">647.589</td>
+        <td style="text-align:right">1,02</td>
+        <td style="text-align:right">217</td>
+        <td style="text-align:right">665.816</td>
+        <td style="text-align:right"><span class="up">$191</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="nb" style="margin-top:10px"><strong>Coronel Díaz y Arenales</strong> son las sucursales con mayor inversión y alcance. <strong>Arenales destaca con 142 clics</strong> — la sucursal con mayor intención de visita generada a través de la campaña de awareness. Pilar tiene el CPM más alto ($251) y cero clics — podría revisarse el targeting o el creativo para esa zona. La frecuencia está muy controlada en todas las sucursales (1,01–1,05): cada persona ve el anuncio 1 sola vez en promedio, eficiente para awareness sin saturación.</div>
+
+  <div style="margin-top:20px">
+    <div class="st">Google Geo — tráfico a sucursales</div>
+    <table class="t">
+      <thead><tr><th>Campaña</th><th>Plataforma</th><th>Inversión</th><th>Clics</th><th>Impresiones</th><th>CPM</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>PMax GeoLocal</strong><span class="tag">SH_MH_GG_PMax_GeoLocal_Sucursales</span></td>
+          <td><span class="badge b-coral">Google</span></td>
+          <td>$154.141</td><td>937</td><td>125.371</td>
+          <td>$1.229</td>
+        </tr>
+        <tr>
+          <td><strong>Video Awareness Geo</strong><span class="tag">SH_MH_GG_Video_Awareness_Geo</span></td>
+          <td><span class="badge b-coral">Google / YT</span></td>
+          <td>$31.469</td><td>2</td><td>32.803</td>
+          <td>$959</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="wb" style="margin-top:10px"><strong>Meta Geo</strong> es 6x más barato que Google PMax GeoLocal en CPM ($191 vs $1.229). PMax GeoLocal tiene 937 clics reales sobre 125K impresiones — mayor intención de visita que el awareness de Meta, pero con costo por contacto significativamente mayor.</div>
+  </div>
+</div>
+
+<hr class="div" style="margin:0">
+
+<!-- FUNNEL -->
+<div class="card">
+  <div class="st">Funnel de venta — GA4 (1–4 sep)</div>
+  <div style="padding:4px 0 6px">
+    <div class="fr"><span class="fl">Sesiones web</span><div class="fw"><div class="fb" style="width:99%;background:#E1F5EE"></div></div><span style="font-size:12px;color:#888780;margin-left:8px">8.493</span></div>
+    <div class="fr"><span class="fl">Add to cart</span><div class="fw"><div class="fb" style="width:10%;background:#639922"></div></div><span style="font-size:12px;color:#888780;margin-left:8px">232 (2,7%)</span></div>
+    <div class="fr"><span class="fl">Begin checkout</span><div class="fw"><div class="fb" style="width:3%;background:#BA7517"></div></div><span style="font-size:12px;color:#888780;margin-left:8px">74 (31,9% de ATC)</span></div>
+    <div class="fr"><span class="fl">Compra (backend)</span><div class="fw"><div class="fb" style="width:1.2%;background:#993C1D"></div></div><span style="font-size:12px;color:#888780;margin-left:8px">32 (43,2% de checkout)</span></div>
+  </div>
+  <div class="nb">La tasa sesión→ATC es 2,7% con 8.493 sesiones registradas. De 74 personas que iniciaron checkout, 32 completaron la compra (43,2% de checkout). El embudo muestra el volumen de tráfico generado por las campañas de la semana.</div>
+</div>
+
+<!-- PRODUCTOS -->
+<div class="card">
+  <div class="st">Productos más vendidos — septiembre a la fecha (backend items)</div>
+  <table class="t">
+    <thead><tr><th>#</th><th>Producto</th><th>Categoría</th><th>Uds.</th><th>Revenue</th><th>Precio unit.</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>YUTE ORGANIC NATURAL 240X300</strong></td><td>Extra Grande · Yute</td><td>2</td><td>$1.906.760</td><td><span class="up">$953.380</span></td></tr>
+      <tr><td>2</td><td><strong>HIMALAYA VEA 240x340</strong></td><td>Extra Grande · Lana/Sint.</td><td>2</td><td>$1.498.500</td><td><span class="up">$749.250</span></td></tr>
+      <tr><td>3</td><td><strong>HIMALAYA VEA 200x290</strong></td><td>Grande · Lana/Sint.</td><td>3</td><td>$1.467.000</td><td><span class="up">$489.000</span></td></tr>
+      <tr><td>4</td><td><strong>SHAGGY BRUMA MARROQUI 200X275</strong></td><td>Grande · Pelo alto</td><td>2</td><td>$1.338.000</td><td><span class="up">$669.000</span></td></tr>
+      <tr><td>5</td><td><strong>DUNE ACADIA GRIS PLOMO 200X290</strong></td><td>Grande · Dune</td><td>1</td><td>$1.179.000</td><td><span class="up">$1.179.000</span></td></tr>
+      <tr><td>6</td><td><strong>TAMRI IVORY 170X240</strong></td><td>Mediana · Lana/Sint.</td><td>2</td><td>$989.880</td><td>$494.940</td></tr>
+      <tr><td>7</td><td><strong>SISALO ETNIC NATURAL 240X340</strong></td><td>Extra Grande · Sisalo</td><td>1</td><td>$989.000</td><td><span class="up">$989.000</span></td></tr>
+      <tr><td>8</td><td><strong>ALOY SERENA NATURAL 200X290</strong></td><td>Grande · Lana/Sint.</td><td>2</td><td>$963.300</td><td>$481.650</td></tr>
+      <tr><td>9</td><td><strong>HIMALAYA GUARDA BEIGE 200X290</strong></td><td>Grande · Lana/Sint.</td><td>2</td><td>$943.000</td><td>$471.500</td></tr>
+      <tr><td>10</td><td><strong>YUTE ORGANIC NATURAL 165X235</strong></td><td>Mediana · Yute</td><td>2</td><td>$923.000</td><td>$461.500</td></tr>
+    </tbody>
+  </table>
+  <div class="nb" style="margin-top:10px"><strong>Himalaya y Yute Organic son los productos estrella de la semana</strong>. El Dune Acadia ($1.179.000/u) tiene el precio unitario más alto entre los más vendidos. La línea Himalaya (VEA y GUARDA) domina el top 10 en múltiples SKUs — candidato ideal para refuerzo de pauta con creativos de producto específico.</div>
+
+  <div style="margin-top:20px">
+    <div class="st">Por tamaño — septiembre backend</div>
+    <div style="padding:4px 0 8px">
+      <div class="fr"><span class="fl">Grande (200×275–300)</span><div class="fw"><div class="fb" style="width:99%;background:#B5D4F4"></div></div><span style="font-size:11px;color:#0C447C;margin-left:8px">$11.641.800 · 20 u</span></div>
+      <div class="fr"><span class="fl">Mediana (160–170×230–240)</span><div class="fw"><div class="fb" style="width:58%;background:#9FE1CB"></div></div><span style="font-size:11px;color:#085041;margin-left:8px">$6.745.680 · 17 u</span></div>
+      <div class="fr"><span class="fl">Extra Grande (240×300–340)</span><div class="fw"><div class="fb" style="width:43%;background:#9FE1CB"></div></div><span style="font-size:11px;color:#085041;margin-left:8px">$5.020.000 · 6 u</span></div>
+      <div class="fr"><span class="fl">Pequeña (hasta 140×200)</span><div class="fw"><div class="fb" style="width:16%;background:#FAEEDA"></div></div><span style="font-size:11px;color:#854F0B;margin-left:8px">$1.830.900 · 9 u</span></div>
+    </div>
+    <div class="nb">Las alfombras <strong>grandes concentran el mayor revenue</strong> (39%). Las extra grandes tienen el mayor valor por unidad ($836K/u promedio). Las medianas sorprenden con 17 unidades en volumen — impulsadas principalmente por la colección Himalaya en 170×240 y Yute en 165×235.</div>
+  </div>
+
+  <div style="margin-top:20px">
+    <div class="st">Por material — septiembre backend</div>
+    <div style="padding:4px 0 8px">
+      <div class="fr"><span class="fl">Lana / Sint. premium</span><div class="fw"><div class="fb" style="width:99%;background:#B5D4F4"></div></div><span style="font-size:11px;color:#0C447C;margin-left:8px">$9.682.680 · 26 u · $372K/u</span></div>
+      <div class="fr"><span class="fl">Yute</span><div class="fw"><div class="fb" style="width:59%;background:#9FE1CB"></div></div><span style="font-size:11px;color:#085041;margin-left:8px">$5.657.860 · 9 u · $629K/u</span></div>
+      <div class="fr"><span class="fl">Sisalo (fibra natural)</span><div class="fw"><div class="fb" style="width:53%;background:#9FE1CB"></div></div><span style="font-size:11px;color:#085041;margin-left:8px">$5.137.000 · 15 u · $342K/u</span></div>
+      <div class="fr"><span class="fl">Pelo alto / Boucle</span><div class="fw"><div class="fb" style="width:23%;background:#FAEEDA"></div></div><span style="font-size:11px;color:#854F0B;margin-left:8px">$2.258.000 · 3 u · $753K/u</span></div>
+      <div class="fr"><span class="fl">Dune</span><div class="fw"><div class="fb" style="width:15%;background:#FAEEDA"></div></div><span style="font-size:11px;color:#854F0B;margin-left:8px">$1.431.000 · 2 u · $716K/u</span></div>
+    </div>
+    <div class="wb">Lana/Sint. lidera en revenue y volumen. <strong>Yute y Pelo alto/Boucle tienen el mayor ticket unitario</strong> ($629K y $753K respectivamente). Curioso: en Meta los creativos de Yute/Sisal son los que más convierten esta semana, lo que está alineado con las ventas de backend. El creativo de Meilland (lana) fue el de mejor ROAS individual. Dune también figura con ticket alto pero bajo volumen — oportunidad de creativos específicos.</div>
+  </div>
+</div>
+
+<hr class="div" style="margin:0">
+
+<!-- RESUMEN EJECUTIVO -->
+<div class="card">
+  <div class="st">Resumen ejecutivo — puntos clave semana 1</div>
+  <div class="bul"><i class="ti ti-alert-triangle" style="color:#D85A30"></i><span><strong>Ticket promedio ($374.947) es el principal desvío:</strong> el objetivo de septiembre ($651.163) es +55% mayor al de julio/agosto. La primera semana arrancó con tickets de rango medio-bajo, traccionados por alfombras medianas y la promo SALE. Las semanas 2 y 3 deberán empujar más producto premium.</span></div>
+  <div class="bul"><i class="ti ti-calendar-check" style="color:#BA7517"></i><span><strong>Pedidos en ritmo:</strong> 32 en 4 días proyecta ~240 para el mes, por encima del objetivo de 215. La mecánica de ventas funciona — el foco ahora es subir el valor por pedido.</span></div>
+  <div class="bul"><i class="ti ti-receipt" style="color:#1D9E75"></i><span><strong>Miércoles y jueves concentran el volumen:</strong> días 2 y 3 representan el 73% de la facturación semanal. El patrón confirma que el consumidor premium compra a mitad de semana — oportunidad de aumentar presupuesto esos días.</span></div>
+  <div class="bul"><i class="ti ti-photo" style="color:#185FA5"></i><span><strong>Creativos SALE de categoría Yute/Sisal son los más rentables:</strong> ROAS 5,74 y 4,90 — los mejores de la semana. Los creativos genéricos de catálogo (ROAS 0,90) no están convirtiendo bien — deberían revisarse o pausarse a favor de los específicos.</span></div>
+  <div class="bul"><i class="ti ti-trending-down" style="color:#D85A30"></i><span><strong>PMax OpenMix Google (ROAS 0,14):</strong> con $142K de inversión y casi cero compras reales, es la campaña que más daña el ROAS total. Requiere revisión de señales de conversión o pausa de grupos de activos ineficientes.</span></div>
+  <div class="bul"><i class="ti ti-star" style="color:#BA7517"></i><span><strong>Línea Himalaya domina el backend:</strong> VEA y GUARDA aparecen en 3 de los top 5 productos vendidos. Es la colección con mejor respaldo de ventas — ideal para desarrollar creativos de producto específico en High Tickets.</span></div>
+  <div class="bul"><i class="ti ti-map-pin" style="color:#185FA5"></i><span><strong>Meta Geo muy eficiente:</strong> 647.589 personas únicas a CPM $191 — 6x más barato que Google GeoLocal. Arenales genera más clics (142) sugiriendo mayor intención de visita. Pilar tiene 0 clics — revisar creative o targeting. Frecuencia controlada (1,02 avg) en todas las sucursales.</span></div>
+</div>
+
+</div>
+
+<script>
+const labels = ['1/9 Mar','2/9 Mié','3/9 Jue','4/9 Vie'];
+const factData = [1915920, 4219773, 4635116, 1227500];
+const invData  = [590538, 649548, 625563, 619206];
+const ticketData = [383184, 351648, 356547, 613750];
+const objTicket = 651163;
+
+const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const gridCol = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)';
+const textCol = isDark ? '#cfcec8' : '#888780';
+
+Chart.defaults.font.family = "-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
+Chart.defaults.font.size = 11;
+
+// Chart 1: Fact + Inv
+new Chart(document.getElementById('chartFactInv'), {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [
+      {
+        label: 'Facturación',
+        data: factData,
+        backgroundColor: 'rgba(29,158,117,0.7)',
+        borderRadius: 4,
+        yAxisID: 'y',
+      },
+      {
+        label: 'Inversión',
+        data: invData,
+        type: 'line',
+        borderColor: '#BA7517',
+        backgroundColor: 'rgba(186,117,23,0.12)',
+        tension: 0.3,
+        pointRadius: 4,
+        borderWidth: 2,
+        yAxisID: 'y1',
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { labels: { color: textCol, boxWidth: 12 } },
+      tooltip: {
+        callbacks: {
+          label: ctx => {
+            const v = ctx.parsed.y;
+            return ` ${ctx.dataset.label}: $${(v/1000000).toFixed(2)}M`;
+          }
+        }
+      }
+    },
+    scales: {
+      x: { ticks: { color: textCol }, grid: { color: gridCol } },
+      y: {
+        type: 'linear', position: 'left',
+        ticks: { color: textCol, callback: v => '$'+(v/1000000).toFixed(1)+'M' },
+        grid: { color: gridCol }
+      },
+      y1: {
+        type: 'linear', position: 'right',
+        ticks: { color: '#BA7517', callback: v => '$'+(v/1000).toFixed(0)+'K' },
+        grid: { drawOnChartArea: false }
+      }
+    }
+  }
+});
+
+// Chart 2: Ticket promedio
+new Chart(document.getElementById('chartTicket'), {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [
+      {
+        label: 'Ticket promedio',
+        data: ticketData,
+        borderColor: '#185FA5',
+        backgroundColor: 'rgba(24,95,165,0.1)',
+        tension: 0.3,
+        pointRadius: 5,
+        borderWidth: 2,
+        fill: true,
+      },
+      {
+        label: 'Objetivo $651.163',
+        data: Array(4).fill(objTicket),
+        borderColor: '#D85A30',
+        borderDash: [6,4],
+        borderWidth: 1.5,
+        pointRadius: 0,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    interaction: { mode: 'index', intersect: false },
+    plugins: {
+      legend: { labels: { color: textCol, boxWidth: 12 } },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.dataset.label}: $${(ctx.parsed.y/1000).toFixed(0)}K`
+        }
+      }
+    },
+    scales: {
+      x: { ticks: { color: textCol }, grid: { color: gridCol } },
+      y: {
+        ticks: { color: textCol, callback: v => '$'+(v/1000).toFixed(0)+'K' },
+        grid: { color: gridCol }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>
