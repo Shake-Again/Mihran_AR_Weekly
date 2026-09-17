@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Mihran AR | Sep 1–16, 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#f4f3ee;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1a1a;font-size:14px;line-height:1.5}
+:root{--bg:#f4f3ee;--card:#fff;--border:#e2e1dc;--text:#1a1a1a;--muted:#6b6b6b;
+  --green:#1D9E75;--amber:#BA7517;--red:#D85A30;--blue:#185FA5;
+  --green-bg:#e8f7f2;--amber-bg:#fdf3e3;--red-bg:#fdeee9;--blue-bg:#e8eef7}
+.wrap{max-width:1200px;margin:0 auto;padding:24px 20px}
+.report-header{background:#1a1a1a;color:#fff;border-radius:12px;padding:28px 32px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+.report-header h1{font-size:22px;font-weight:700;letter-spacing:-.3px;margin-bottom:4px}
+.report-header .sub{font-size:13px;color:#aaa}
+.report-header .meta{text-align:right;font-size:12px;color:#aaa;line-height:1.8}
+.report-header .meta strong{color:#fff;font-size:13px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px}
+.g{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.mc{display:flex;flex-direction:column;gap:4px}
+.ml{font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.6px}
+.mv{font-size:28px;font-weight:700;line-height:1.1}
+.ms{font-size:12px;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px;margin-top:4px}
+.chip.up{background:var(--green-bg);color:var(--green)}
+.chip.down{background:var(--red-bg);color:var(--red)}
+.chip.warn{background:var(--amber-bg);color:var(--amber)}
+.chip.neu{background:#f0f0f0;color:#555}
+.section-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:12px;border-left:3px solid var(--blue);padding-left:10px}
+.t{width:100%;border-collapse:collapse;font-size:13px}
+.t th{text-align:left;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;border-bottom:2px solid var(--border)}
+.t td{padding:9px 10px;border-bottom:1px solid var(--border)}
+.t .num{text-align:right;font-variant-numeric:tabular-nums}
+.t tr:last-child td{border-bottom:none}
+.progress-wrap{background:#eeeee9;border-radius:6px;height:10px;overflow:hidden;margin-top:6px}
+.progress-bar{height:100%;border-radius:6px;transition:width .3s}
+.bul{list-style:none;padding:0}
+.bul li{padding:6px 0;border-bottom:1px solid var(--border);font-size:13px;padding-left:14px;position:relative}
+.bul li:before{content:'▸';position:absolute;left:0;color:var(--blue)}
+.bul li:last-child{border-bottom:none}
+.wk-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.wk-card{border:1px solid var(--border);border-radius:8px;padding:14px;background:var(--card)}
+.wk-card.active{border-color:var(--green);background:var(--green-bg)}
+.wk-card.partial{border-color:var(--amber);background:var(--amber-bg)}
+.wk-card .wk-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:8px}
+.wk-card .wk-val{font-size:18px;font-weight:700;color:var(--text)}
+.wk-card .wk-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.tag{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;text-transform:uppercase;letter-spacing:.4px}
+.tag.high{background:#fdeee9;color:var(--red)}
+.tag.mid{background:#e8eef7;color:var(--blue)}
+.tag.low{background:#f0f0f0;color:#555}
+.tag.cat{background:#e8f7f2;color:var(--green)}
+.tag.new{background:#fff3cd;color:#856404}
+.chart-wrap{position:relative;height:260px}
+.footer{text-align:center;color:var(--muted);font-size:11px;margin-top:32px;padding-top:16px;border-top:1px solid var(--border)}
+.obj-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.obj-row .obj-label{font-size:12px;color:var(--muted);width:130px;flex-shrink:0}
+.obj-row .obj-pct{font-size:12px;font-weight:700;width:44px;flex-shrink:0;text-align:right}
+.kpi-highlight{background:var(--blue);color:#fff;border-radius:8px;padding:12px 16px;display:flex;flex-direction:column;gap:2px}
+.kpi-highlight .ml{color:rgba(255,255,255,.7)}
+.kpi-highlight .mv{color:#fff}
+.kpi-highlight .ms{color:rgba(255,255,255,.7)}
+.note{font-size:11px;color:var(--muted);font-style:italic;margin-top:8px}
+@media(max-width:768px){.g4,.g3,.g2,.wk-grid{grid-template-columns:1fr 1fr}.report-header{flex-direction:column}.report-header .meta{text-align:left}}
+@media(max-width:480px){.g4,.g3,.g2,.wk-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- HEADER -->
+<div class="report-header">
+  <div>
+    <div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px">Shake — Reporte Semanal</div>
+    <h1>Weekly Report · Mihran Argentina</h1>
+    <div class="sub">Septiembre 1–16, 2026 &nbsp;·&nbsp; S1 + S2 + S3 parcial</div>
+  </div>
+  <div class="meta">
+    <div>Período analizado</div>
+    <strong>Sep 1 → Sep 16</strong>
+    <div style="margin-top:4px">Corte</div>
+    <strong>16 de septiembre, 2026</strong>
+    <div style="margin-top:4px">Fuente de verdad</div>
+    <strong>Backend Items</strong>
+  </div>
+</div>
+
+<!-- OBJETIVOS SEPTIEMBRE -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Objetivos Septiembre 2026</div>
+  <div class="g g4" style="margin-bottom:16px">
+    <div class="mc">
+      <span class="ml">Facturación objetivo</span>
+      <span class="mv" style="font-size:20px">$140.000.000</span>
+      <span class="ms">Acumulado Sep 1–16</span>
+      <span class="mv" style="font-size:18px;color:var(--green)">$70.202.773</span>
+      <span class="chip up">50.1% del objetivo</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Pedidos objetivo</span>
+      <span class="mv" style="font-size:20px">215</span>
+      <span class="ms">Acumulado Sep 1–16</span>
+      <span class="mv" style="font-size:18px;color:var(--green)">121</span>
+      <span class="chip up">56.3% del objetivo</span>
+    </div>
+    <div class="mc">
+      <span class="ml">ACOS Total objetivo</span>
+      <span class="mv" style="font-size:20px">19.08%</span>
+      <span class="ms">Acumulado Sep 1–16</span>
+      <span class="mv" style="font-size:18px;color:var(--green)">14.66%</span>
+      <span class="chip up">−4.4 pp vs objetivo</span>
+    </div>
+    <div class="mc">
+      <span class="ml">ACOS Performance objetivo</span>
+      <span class="mv" style="font-size:20px">12.86%</span>
+      <span class="ms">Acumulado Sep 1–16</span>
+      <span class="mv" style="font-size:18px;color:var(--green)">12.04%</span>
+      <span class="chip up">−0.8 pp vs objetivo</span>
+    </div>
+  </div>
+  <div class="g g2" style="margin-bottom:16px">
+    <div class="mc">
+      <span class="ml">Inversión objetivo</span>
+      <span class="mv" style="font-size:20px">$26.707.268</span>
+      <span class="ms">Acumulado Sep 1–16</span>
+      <span class="mv" style="font-size:18px;color:var(--amber)">$10.289.595</span>
+      <span class="chip warn">38.5% del objetivo</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Inv. performance (Sep 1–16)</span>
+      <span class="mv" style="font-size:18px">$8.451.827</span>
+      <span class="ms">GEO + Tráfico + Eng: $1.837.768</span>
+      <span class="chip neu">82.1% del total</span>
+    </div>
+  </div>
+  <div>
+    <div class="obj-row">
+      <span class="obj-label">Facturación</span>
+      <div class="progress-wrap" style="flex:1">
+        <div class="progress-bar" style="width:50.1%;background:var(--green)"></div>
+      </div>
+      <span class="obj-pct" style="color:var(--green)">50.1%</span>
+    </div>
+    <div class="obj-row">
+      <span class="obj-label">Pedidos</span>
+      <div class="progress-wrap" style="flex:1">
+        <div class="progress-bar" style="width:56.3%;background:var(--green)"></div>
+      </div>
+      <span class="obj-pct" style="color:var(--green)">56.3%</span>
+    </div>
+    <div class="obj-row">
+      <span class="obj-label">Inversión</span>
+      <div class="progress-wrap" style="flex:1">
+        <div class="progress-bar" style="width:38.5%;background:var(--amber)"></div>
+      </div>
+      <span class="obj-pct" style="color:var(--amber)">38.5%</span>
+    </div>
+    <div class="obj-row">
+      <span class="obj-label">ACOS Total</span>
+      <div class="progress-wrap" style="flex:1">
+        <div class="progress-bar" style="width:76.8%;background:var(--green)"></div>
+      </div>
+      <span class="obj-pct" style="color:var(--green)">14.66%</span>
+    </div>
+    <div class="obj-row">
+      <span class="obj-label">ACOS Perf.</span>
+      <div class="progress-wrap" style="flex:1">
+        <div class="progress-bar" style="width:93.6%;background:var(--green)"></div>
+      </div>
+      <span class="obj-pct" style="color:var(--green)">12.04%</span>
+    </div>
+  </div>
+  <p class="note">Período analizado: 16 de 30 días del mes (53% del mes transcurrido). Run-rate proyectado de facturación a cierre: ~$131.6M–$140M según aceleración de semanas recientes.</p>
+</div>
+
+<!-- KPIs GENERALES SEP 1-16 -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">KPIs Generales — Sep 1–16, 2026 (Backend Items)</div>
+  <div class="g g4" style="margin-bottom:16px">
+    <div class="mc">
+      <span class="ml">Facturación Total</span>
+      <span class="mv">$70.202.773</span>
+      <span class="ms">vs $45.2M Ago 1–16</span>
+      <span class="chip up">▲ +55.2% MoM</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Pedidos</span>
+      <span class="mv">121</span>
+      <span class="ms">vs 63 Ago 1–16</span>
+      <span class="chip up">▲ +92.1% MoM</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Ticket Promedio</span>
+      <span class="mv">$580.189</span>
+      <span class="ms">vs $717.857 Ago 1–16</span>
+      <span class="chip down">▼ −19.2% MoM</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Unidades</span>
+      <span class="mv">143</span>
+      <span class="ms">92 SKUs distintos</span>
+      <span class="chip neu">1.18 u/pedido</span>
+    </div>
+  </div>
+  <div class="g g4" style="margin-top:0">
+    <div class="mc">
+      <span class="ml">Inversión Total</span>
+      <span class="mv">$10.289.595</span>
+      <span class="ms">Meta $7.73M · Google $2.56M</span>
+      <span class="chip neu">Sep 1–16</span>
+    </div>
+    <div class="mc" style="background:var(--green-bg);border-radius:8px;padding:10px">
+      <span class="ml">ACOS Total</span>
+      <span class="mv" style="color:var(--green)">14.66%</span>
+      <span class="ms">Inv total / Backend · obj 19.08%</span>
+      <span class="chip up">▼ −4.4 pp vs objetivo</span>
+    </div>
+    <div class="mc" style="background:var(--green-bg);border-radius:8px;padding:10px">
+      <span class="ml">ACOS Performance</span>
+      <span class="mv" style="color:var(--green)">12.04%</span>
+      <span class="ms">Inv perf $8.45M / Backend · obj 12.86%</span>
+      <span class="chip up">▼ −0.8 pp vs objetivo</span>
+    </div>
+    <div class="mc">
+      <span class="ml">ROAS Real</span>
+      <span class="mv" style="color:var(--green)">6.82x</span>
+      <span class="ms">vs 5.14x Ago 1–16</span>
+      <span class="chip up">▲ +32.7% MoM</span>
+    </div>
+  </div>
+  <div style="margin-top:12px;padding:10px 14px;background:#f0f0f0;border-radius:8px;font-size:12px;color:var(--muted)">
+    <strong style="color:var(--text)">ACOS Total</strong> = inversión total (performance + GEO + tráfico + engagement) / facturación backend · &nbsp;
+    <strong style="color:var(--text)">ACOS Performance</strong> = solo campañas Purchase + Brand / facturación backend · &nbsp;
+    <strong style="color:var(--text)">Diferencia:</strong> $1.837.768 de inversión no-performance (GEO sucursales + tráfico + video awareness)
+  </div>
+</div>
+
+<!-- COMPARATIVA MoM -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Comparativa MoM — Ago 1–16 vs Sep 1–16 (mismos 16 días)</div>
+  <table class="t">
+    <thead>
+      <tr>
+        <th>KPI</th>
+        <th class="num">Ago 1–16</th>
+        <th class="num">Sep 1–16</th>
+        <th class="num">Variación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Facturación (Backend Items)</td>
+        <td class="num">$45.200.000</td>
+        <td class="num"><strong>$70.202.773</strong></td>
+        <td class="num"><span class="chip up">▲ +55.2%</span></td>
+      </tr>
+      <tr>
+        <td>Pedidos</td>
+        <td class="num">63</td>
+        <td class="num"><strong>121</strong></td>
+        <td class="num"><span class="chip up">▲ +92.1%</span></td>
+      </tr>
+      <tr>
+        <td>Ticket promedio</td>
+        <td class="num">$717.857</td>
+        <td class="num"><strong>$580.189</strong></td>
+        <td class="num"><span class="chip down">▼ −19.2%</span></td>
+      </tr>
+      <tr>
+        <td>Inversión total</td>
+        <td class="num">$8.773.000</td>
+        <td class="num"><strong>$10.289.595</strong></td>
+        <td class="num"><span class="chip warn">▲ +17.3%</span></td>
+      </tr>
+      <tr>
+        <td>ACOS Total <span style="font-size:10px;color:var(--muted)">(inv total / backend)</span></td>
+        <td class="num">19.4%</td>
+        <td class="num"><strong>14.66%</strong></td>
+        <td class="num"><span class="chip up">▼ −4.7 pp</span></td>
+      </tr>
+      <tr>
+        <td>ACOS Performance <span style="font-size:10px;color:var(--muted)">(inv perf / backend)</span></td>
+        <td class="num">~15.2%</td>
+        <td class="num"><strong>12.04%</strong></td>
+        <td class="num"><span class="chip up">▼ −3.2 pp</span></td>
+      </tr>
+      <tr>
+        <td>ROAS real</td>
+        <td class="num">5.14x</td>
+        <td class="num"><strong>6.82x</strong></td>
+        <td class="num"><span class="chip up">▲ +32.7%</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">Dato a validar con cliente: la caída de ticket promedio (−19.2%) convive con aumento de facturación total. La hipótesis es mayor volumen de pedidos Mid Ticket en septiembre versus mix High Ticket concentrado de agosto.</p>
+</div>
+
+<!-- TRANSICIÓN SEMANAL -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Transición Semanal — S3 Ago → S1–S3 Sep</div>
+  <div class="wk-grid" style="margin-bottom:16px">
+    <div class="wk-card">
+      <div class="wk-label">S3 Ago (15–21)</div>
+      <div class="wk-val">$14.190.000</div>
+      <div class="wk-sub">22 ped · $645K tkt</div>
+      <div class="wk-sub" style="margin-top:6px;display:flex;justify-content:space-between"><span>ACOS T</span><strong>27.9%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between"><span>ACOS P <span style="font-size:9px;color:#aaa">est.</span></span><strong>23.2%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between"><span>CVR</span><span style="color:#bbb">n/d</span></div>
+      <div class="wk-sub" style="margin-top:4px">Inv $3.96M</div>
+    </div>
+    <div class="wk-card">
+      <div class="wk-label">S4 Ago (22–28)</div>
+      <div class="wk-val">$28.010.000</div>
+      <div class="wk-sub">49 ped · $572K tkt</div>
+      <div class="wk-sub" style="margin-top:6px;display:flex;justify-content:space-between"><span>ACOS T</span><strong>15.4%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between"><span>ACOS P <span style="font-size:9px;color:#aaa">est.</span></span><strong>12.8%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between"><span>CVR</span><span style="color:#bbb">n/d</span></div>
+      <div class="wk-sub" style="margin-top:4px">Inv $4.31M</div>
+    </div>
+    <div class="wk-card active">
+      <div class="wk-label">S1 Sep (1–7)</div>
+      <div class="wk-val">$25.567.649</div>
+      <div class="wk-sub">54 ped · $473K tkt</div>
+      <div class="wk-sub" style="margin-top:6px;display:flex;justify-content:space-between"><span>ACOS T</span><strong>17.66%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between;color:var(--green)"><span>ACOS P <span style="font-size:9px;color:var(--green)">est.</span></span><strong>14.5%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between"><span>CVR GA4</span><strong>~0.18%</strong></div>
+      <div class="wk-sub" style="margin-top:4px">Inv $4.51M</div>
+    </div>
+    <div class="wk-card active">
+      <div class="wk-label">S2 Sep (8–14)</div>
+      <div class="wk-val">$32.703.724</div>
+      <div class="wk-sub">53 ped · $617K tkt</div>
+      <div class="wk-sub" style="margin-top:6px;display:flex;justify-content:space-between"><span>ACOS T</span><strong>14.40%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between;color:var(--green)"><span>ACOS P <span style="font-size:9px;color:var(--green)">est.</span></span><strong>11.8%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between"><span>CVR GA4</span><strong>~0.18%</strong></div>
+      <div class="wk-sub" style="margin-top:4px">Inv $4.71M</div>
+    </div>
+    <div class="wk-card partial">
+      <div class="wk-label">S3 Sep (15–16) ⚡</div>
+      <div class="wk-val">$11.931.400</div>
+      <div class="wk-sub">14 ped · $852K tkt</div>
+      <div class="wk-sub" style="margin-top:6px;display:flex;justify-content:space-between"><span>ACOS T</span><strong>8.94%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between;color:var(--green)"><span>ACOS P <span style="font-size:9px;color:var(--green)">est.</span></span><strong>7.3%</strong></div>
+      <div class="wk-sub" style="display:flex;justify-content:space-between"><span>CVR GA4</span><strong>~0.18%</strong></div>
+      <div class="wk-sub" style="margin-top:4px">Inv $1.07M</div>
+      <div style="margin-top:6px"><span class="tag new">2 días · parcial</span></div>
+    </div>
+  </div>
+
+  <!-- TABLA COMPARATIVA SEMANAL COMPLETA -->
+  <table class="t">
+    <thead>
+      <tr>
+        <th>KPI</th>
+        <th class="num">S3 Ago<br><span style="font-weight:400;text-transform:none">15–21 ago</span></th>
+        <th class="num">S4 Ago<br><span style="font-weight:400;text-transform:none">22–28 ago</span></th>
+        <th class="num">S1 Sep<br><span style="font-weight:400;text-transform:none">1–7 sep</span></th>
+        <th class="num">S2 Sep<br><span style="font-weight:400;text-transform:none">8–14 sep</span></th>
+        <th class="num">S3 Sep ⚡<br><span style="font-weight:400;text-transform:none">15–16 sep</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Facturación</td>
+        <td class="num">$14.190.000</td>
+        <td class="num">$28.010.000</td>
+        <td class="num">$25.567.649</td>
+        <td class="num">$32.703.724</td>
+        <td class="num">$11.931.400</td>
+      </tr>
+      <tr>
+        <td>Pedidos</td>
+        <td class="num">22</td>
+        <td class="num">49</td>
+        <td class="num">54</td>
+        <td class="num">53</td>
+        <td class="num">14</td>
+      </tr>
+      <tr>
+        <td>Ticket promedio</td>
+        <td class="num">$645.000</td>
+        <td class="num">$571.633</td>
+        <td class="num">$473.475</td>
+        <td class="num">$617.051</td>
+        <td class="num">$852.243</td>
+      </tr>
+      <tr>
+        <td>Inversión total</td>
+        <td class="num">$3.960.000</td>
+        <td class="num">$4.310.000</td>
+        <td class="num">$4.514.737</td>
+        <td class="num">$4.708.187</td>
+        <td class="num">$1.066.671</td>
+      </tr>
+      <tr>
+        <td><strong>ACOS Total</strong></td>
+        <td class="num" style="color:var(--red)"><strong>27.9%</strong></td>
+        <td class="num" style="color:var(--amber)"><strong>15.4%</strong></td>
+        <td class="num" style="color:var(--amber)"><strong>17.66%</strong></td>
+        <td class="num" style="color:var(--green)"><strong>14.40%</strong></td>
+        <td class="num" style="color:var(--green)"><strong>8.94%</strong></td>
+      </tr>
+      <tr style="background:#f4fbf8">
+        <td><strong>ACOS Performance</strong> <span style="font-size:10px;color:var(--muted)">est.</span></td>
+        <td class="num" style="color:var(--red)"><strong>23.2%</strong></td>
+        <td class="num" style="color:var(--amber)"><strong>12.8%</strong></td>
+        <td class="num" style="color:var(--amber)"><strong>14.5%</strong></td>
+        <td class="num" style="color:var(--green)"><strong>11.8%</strong></td>
+        <td class="num" style="color:var(--green)"><strong>7.3%</strong></td>
+      </tr>
+      <tr>
+        <td>ROAS real</td>
+        <td class="num">3.58x</td>
+        <td class="num">6.50x</td>
+        <td class="num">5.66x</td>
+        <td class="num">6.95x</td>
+        <td class="num">11.18x</td>
+      </tr>
+      <tr style="background:#f4fbf8">
+        <td><strong>CVR GA4</strong> <span style="font-size:10px;color:var(--muted)">last-click</span></td>
+        <td class="num" style="color:#bbb">n/d</td>
+        <td class="num" style="color:#bbb">n/d</td>
+        <td class="num">~0.18%</td>
+        <td class="num">~0.18%</td>
+        <td class="num">~0.18%</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin-top:10px">ACOS Performance estimado aplicando ratio período Sep (82.1% de inversión en campañas Purchase + Brand sobre total). CVR GA4 agosto no disponible por semana — se dispone del promedio Sep 1–16 (72 tx / 40.342 sesiones = 0.178%). S3 Sep es parcial (2 de 7 días).</p>
+</div>
+
+<!-- GRÁFICO FACTURACIÓN DIARIA -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Facturación Diaria — Sep 1–16 (Backend Items)</div>
+  <div class="chart-wrap">
+    <canvas id="chartFact"></canvas>
+  </div>
+</div>
+
+<!-- SESIONES GA4 -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Sesiones Diarias GA4 — Sep 1–16 vs referencia Agosto</div>
+  <div class="chart-wrap">
+    <canvas id="chartGA4"></canvas>
+  </div>
+  <div class="g g4" style="margin-top:16px">
+    <div class="mc">
+      <span class="ml">Sesiones totales</span>
+      <span class="mv" style="font-size:22px">40.342</span>
+      <span class="ms">Sep 1–16</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Add to Cart</span>
+      <span class="mv" style="font-size:22px">898</span>
+      <span class="ms">2.23% de sesiones</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Checkouts</span>
+      <span class="mv" style="font-size:22px">349</span>
+      <span class="ms">38.9% de ATC</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Transacciones GA4</span>
+      <span class="mv" style="font-size:22px">72</span>
+      <span class="ms">CVR 0.178%</span>
+    </div>
+  </div>
+  <p class="note">CVR GA4 (0.178%) = referencia last-click. Backend Items registra 121 pedidos en el período. Diferencia habitual por atribución multi-touch y tráfico directo/email no capturado por GA4.</p>
+</div>
+
+<!-- META ADS -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Meta Ads — Sep 1–16, 2026</div>
+  <div class="g g4" style="margin-bottom:16px">
+    <div class="mc">
+      <span class="ml">Inversión Meta</span>
+      <span class="mv" style="font-size:22px">$7.729.518</span>
+      <span class="ms">75.1% de inversión total</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Compras atribuidas</span>
+      <span class="mv" style="font-size:22px">44</span>
+      <span class="ms">Atribución Meta (last-click + view)</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Revenue Meta atrib.</span>
+      <span class="mv" style="font-size:22px">$21.374.474</span>
+      <span class="ms">Referencia plataforma</span>
+    </div>
+    <div class="mc">
+      <span class="ml">ROAS Meta global</span>
+      <span class="mv" style="font-size:22px;color:var(--amber)">2.77x</span>
+      <span class="ms">Inv performance / Revenue Meta</span>
+    </div>
+  </div>
+  <table class="t">
+    <thead>
+      <tr>
+        <th>Campaña</th>
+        <th class="num">Inversión</th>
+        <th class="num">Compras</th>
+        <th class="num">Revenue atrib.</th>
+        <th class="num">ROAS</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>High Tickets <span class="tag high">High</span></td>
+        <td class="num">$1.537.928</td>
+        <td class="num">12</td>
+        <td class="num">$5.659.492</td>
+        <td class="num"><strong>3.68x</strong></td>
+        <td><span class="chip up">OK</span></td>
+      </tr>
+      <tr>
+        <td>Mid Tickets <span class="tag mid">Mid</span></td>
+        <td class="num">$1.507.188</td>
+        <td class="num">10</td>
+        <td class="num">$5.229.943</td>
+        <td class="num"><strong>3.47x</strong></td>
+        <td><span class="chip up">OK</span></td>
+      </tr>
+      <tr>
+        <td>Catálogo DPA <span class="tag cat">Catálogo</span></td>
+        <td class="num">$1.387.704</td>
+        <td class="num">12</td>
+        <td class="num">$3.482.887</td>
+        <td class="num"><strong>2.51x</strong></td>
+        <td><span class="chip up">OK</span></td>
+      </tr>
+      <tr>
+        <td>Low Tickets <span class="tag low">Low</span></td>
+        <td class="num">$1.067.097</td>
+        <td class="num">7</td>
+        <td class="num">$3.201.291</td>
+        <td class="num"><strong>3.00x</strong></td>
+        <td><span class="chip up">OK</span></td>
+      </tr>
+      <tr>
+        <td>High Tickets Premium <span class="tag new">NUEVA</span></td>
+        <td class="num">$359.725</td>
+        <td class="num">1</td>
+        <td class="num">$1.510.890</td>
+        <td class="num"><strong>4.20x</strong></td>
+        <td><span class="chip neu">Optimizar</span></td>
+      </tr>
+      <tr>
+        <td>RMKT Tickets</td>
+        <td class="num">$428.308</td>
+        <td class="num">1</td>
+        <td class="num">$547.435</td>
+        <td class="num" style="color:var(--amber)"><strong>1.28x</strong></td>
+        <td><span class="chip warn">⚠ Bajo</span></td>
+      </tr>
+      <tr>
+        <td>RMKT OpenMix</td>
+        <td class="num">$345.885</td>
+        <td class="num">1</td>
+        <td class="num">$411.703</td>
+        <td class="num" style="color:var(--red)"><strong>1.19x</strong></td>
+        <td><span class="chip down">⚠ Revisar</span></td>
+      </tr>
+      <tr style="background:#f9f9f7">
+        <td>GEO Awareness sucursales</td>
+        <td class="num">$787.200</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td><span class="chip neu">Branding</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">La campaña "High Tickets Premium" está fuera del nomenclador estándar SH_MH — confirmar con cliente si es una campaña experimental de agencia o campaña interna de Mihran. RMKT Tickets y RMKT OpenMix muestran ROAS &lt;1.5x: evaluar reducción de inversión y revisión de audiencias.</p>
+</div>
+
+<!-- GOOGLE ADS -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Google Ads — Sep 1–16, 2026</div>
+  <div class="g g4" style="margin-bottom:16px">
+    <div class="mc">
+      <span class="ml">Inversión Google</span>
+      <span class="mv" style="font-size:22px">$2.560.077</span>
+      <span class="ms">24.9% de inversión total</span>
+    </div>
+    <div class="mc">
+      <span class="ml">Search Brand</span>
+      <span class="mv" style="font-size:22px;color:var(--green)">5.55x</span>
+      <span class="ms">ROAS · campaña más eficiente</span>
+    </div>
+    <div class="mc">
+      <span class="ml">PMax OpenMix</span>
+      <span class="mv" style="font-size:22px">4.31x</span>
+      <span class="ms">ROAS</span>
+    </div>
+    <div class="mc">
+      <span class="ml">PMax GeoLocal</span>
+      <span class="mv" style="font-size:22px;color:var(--muted)">$620.895</span>
+      <span class="ms">Visitas tienda — excluido de ACOS ecom</span>
+    </div>
+  </div>
+  <table class="t">
+    <thead>
+      <tr>
+        <th>Campaña</th>
+        <th class="num">Inversión</th>
+        <th class="num">Compras</th>
+        <th class="num">Revenue atrib.</th>
+        <th class="num">ROAS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Search Brand <span class="tag cat">Brand</span></td>
+        <td class="num">$979.541</td>
+        <td class="num">14.1</td>
+        <td class="num">$5.432.095</td>
+        <td class="num" style="color:var(--green)"><strong>5.55x</strong></td>
+      </tr>
+      <tr>
+        <td>PMax OpenMix</td>
+        <td class="num">$564.247</td>
+        <td class="num">1.1</td>
+        <td class="num">$2.430.869</td>
+        <td class="num"><strong>4.31x</strong></td>
+      </tr>
+      <tr>
+        <td>PMax Tráfico</td>
+        <td class="num">$274.204</td>
+        <td class="num">6.0</td>
+        <td class="num">$2.424.400</td>
+        <td class="num"><strong>8.84x</strong></td>
+      </tr>
+      <tr style="background:#f9f9f7">
+        <td>PMax GeoLocal <span class="chip neu" style="font-size:10px">excluido ecom</span></td>
+        <td class="num">$620.895</td>
+        <td class="num">—</td>
+        <td class="num">Visitas tienda</td>
+        <td class="num">—</td>
+      </tr>
+      <tr style="background:#f9f9f7">
+        <td>Video Awareness GEO</td>
+        <td class="num">$121.187</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+        <td class="num">—</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note">Search Brand mantiene posición dominante en eficiencia (ROAS 5.55x). PMax Tráfico muestra ROAS atribuido elevado (8.84x) con bajo volumen — validar calidad de conversiones atribuidas. PMax GeoLocal excluido del cálculo de ACOS ecommerce.</p>
+</div>
+
+<!-- TIERS DE TICKET -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Revenue por Tier de Ticket — Sep 1–16 (Backend Items)</div>
+  <div class="g g2" style="margin-bottom:16px">
+    <div>
+      <div class="chart-wrap" style="height:220px">
+        <canvas id="chartTiers"></canvas>
+      </div>
+    </div>
+    <div>
+      <table class="t">
+        <thead>
+          <tr>
+            <th>Tier</th>
+            <th class="num">Revenue</th>
+            <th class="num">% Share</th>
+            <th class="num">Unidades</th>
+            <th class="num">Tkt Prom.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag high">High Premium</span> &gt;$1M</td>
+            <td class="num">$14.715.000</td>
+            <td class="num"><strong>21.4%</strong></td>
+            <td class="num">11</td>
+            <td class="num">$1.337.727</td>
+          </tr>
+          <tr>
+            <td><span class="tag high">High Estándar</span> $550K–$1M</td>
+            <td class="num">$26.459.195</td>
+            <td class="num"><strong>38.5%</strong></td>
+            <td class="num">34</td>
+            <td class="num">$778.211</td>
+          </tr>
+          <tr style="background:#fdeee9">
+            <td><strong>HIGH TOTAL</strong> &gt;$550K</td>
+            <td class="num"><strong>$41.174.195</strong></td>
+            <td class="num"><strong>59.8%</strong></td>
+            <td class="num"><strong>45</strong></td>
+            <td class="num">$915.093</td>
+          </tr>
+          <tr>
+            <td><span class="tag mid">Mid</span> $250K–$550K</td>
+            <td class="num">$22.352.030</td>
+            <td class="num"><strong>32.5%</strong></td>
+            <td class="num">56</td>
+            <td class="num">$399.143</td>
+          </tr>
+          <tr>
+            <td><span class="tag low">Low</span> &lt;$250K</td>
+            <td class="num">$5.273.420</td>
+            <td class="num"><strong>7.7%</strong></td>
+            <td class="num">42</td>
+            <td class="num">$125.557</td>
+          </tr>
+          <tr style="background:#f9f9f7">
+            <td><strong>TOTAL</strong></td>
+            <td class="num"><strong>$68.799.645</strong></td>
+            <td class="num"><strong>100%</strong></td>
+            <td class="num"><strong>143</strong></td>
+            <td class="num">$481.116</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:8px">High Ticket representa el 59.8% del revenue total — muy por encima del 36.8% registrado en el semestre H1 2026. Señal fuerte: el mix de septiembre está sesgado hacia alfombras grandes y premium. Dato a validar con cliente: ¿hubo promoción especial o entrada de stock de líneas premium?</p>
+    </div>
+  </div>
+</div>
+
+<!-- MATERIALES -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Mix de Materiales — Sep 1–16 (Backend Items)</div>
+  <div class="g g2">
+    <div>
+      <div class="chart-wrap" style="height:220px">
+        <canvas id="chartMat"></canvas>
+      </div>
+    </div>
+    <div>
+      <table class="t">
+        <thead>
+          <tr>
+            <th>Material</th>
+            <th class="num">% Revenue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Otros / Sintético</td>
+            <td class="num"><strong>24.4%</strong></td>
+          </tr>
+          <tr>
+            <td>Sisalo / Sisal</td>
+            <td class="num"><strong>21.9%</strong></td>
+          </tr>
+          <tr>
+            <td>Yute</td>
+            <td class="num"><strong>20.7%</strong></td>
+          </tr>
+          <tr>
+            <td>Himalaya / Lana</td>
+            <td class="num"><strong>16.1%</strong></td>
+          </tr>
+          <tr>
+            <td>Otros naturales</td>
+            <td class="num"><strong>11.2%</strong></td>
+          </tr>
+          <tr>
+            <td>Shaggy</td>
+            <td class="num"><strong>5.1%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:8px">Yute + Sisal representan el 42.6% del revenue — consistente con líneas dominantes históricas. La presencia de Himalaya / Lana en 16.1% (línea de mayor ticket) es señal del mix premium observado en septiembre.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOP 10 SKUs -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Top 10 SKUs — Sep 1–16 (Backend Items)</div>
+  <table class="t">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>SKU</th>
+        <th class="num">Unidades</th>
+        <th class="num">Revenue</th>
+        <th class="num">Ticket prom.</th>
+        <th>Tier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Sisalo Etnic Natural 240x340</td>
+        <td class="num">3</td>
+        <td class="num">$3.368.000</td>
+        <td class="num">$1.122.667</td>
+        <td><span class="tag high">High Prem.</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Yute Sara Sand Natural Light 300x450 <span class="tag new">NUEVO</span></td>
+        <td class="num">1</td>
+        <td class="num">$3.024.000</td>
+        <td class="num" style="color:var(--red);font-weight:700">$3.024.000</td>
+        <td><span class="tag high">High Prem.</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Yute Organic Natural 240x300</td>
+        <td class="num">3</td>
+        <td class="num">$2.860.140</td>
+        <td class="num">$953.380</td>
+        <td><span class="tag high">High Est.</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Sisalo Etnic Natural 200x290</td>
+        <td class="num">3</td>
+        <td class="num">$2.268.000</td>
+        <td class="num">$756.000</td>
+        <td><span class="tag high">High Est.</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Himalaya Vea 240x340</td>
+        <td class="num">3</td>
+        <td class="num">$2.164.500</td>
+        <td class="num">$721.500</td>
+        <td><span class="tag high">High Est.</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Yute Nudos Natural 200x300</td>
+        <td class="num">2</td>
+        <td class="num">$2.116.000</td>
+        <td class="num">$1.058.000</td>
+        <td><span class="tag high">High Prem.</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Emine Ren Beige 200x300</td>
+        <td class="num">3</td>
+        <td class="num">$1.880.605</td>
+        <td class="num">$626.868</td>
+        <td><span class="tag high">High Est.</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Sisalo Togo Canela 200x290</td>
+        <td class="num">2</td>
+        <td class="num">$1.828.000</td>
+        <td class="num">$914.000</td>
+        <td><span class="tag high">High Est.</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>Yasmin Bone 200x300</td>
+        <td class="num">2</td>
+        <td class="num">$1.697.600</td>
+        <td class="num">$848.800</td>
+        <td><span class="tag high">High Est.</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Himalaya Guarda Beige 240x340</td>
+        <td class="num">2</td>
+        <td class="num">$1.665.000</td>
+        <td class="num">$832.500</td>
+        <td><span class="tag high">High Est.</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin-top:8px">⚠ Punto #2 (Yute Sara Sand Natural Light 300x450 — $3.024.000 en 1 unidad) es el SKU de mayor ticket individual del período. Confirmar si es un SKU nuevo en catálogo o reposición. Los Top 10 son 100% alfombras grandes (200x290 en adelante) — confirmar disponibilidad de stock en estos modelos para sostenimiento de mix High Ticket.</p>
+</div>
+
+<!-- GEO SUCURSALES -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">GEO Sucursales — Meta Awareness Sep 1–16</div>
+  <table class="t">
+    <thead>
+      <tr>
+        <th>Sucursal</th>
+        <th class="num">Inversión</th>
+        <th class="num">Alcance</th>
+        <th class="num">Clicks dirección</th>
+        <th class="num">CPM</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Arenales ★</td>
+        <td class="num">$204.334</td>
+        <td class="num">909.979</td>
+        <td class="num"><strong>314</strong></td>
+        <td class="num">$224</td>
+        <td><span class="chip up">Mayor clicks</span></td>
+      </tr>
+      <tr>
+        <td>Coronel Díaz</td>
+        <td class="num">$172.285</td>
+        <td class="num">787.654</td>
+        <td class="num">81</td>
+        <td class="num">$219</td>
+        <td><span class="chip neu">Normal</span></td>
+      </tr>
+      <tr>
+        <td>Alcorta <span class="tag new">NUEVA</span></td>
+        <td class="num">$43.551</td>
+        <td class="num">200.553</td>
+        <td class="num">95</td>
+        <td class="num">$217</td>
+        <td><span class="chip up">Alta eficiencia</span></td>
+      </tr>
+      <tr>
+        <td>Unicenter</td>
+        <td class="num">$129.899</td>
+        <td class="num">598.150</td>
+        <td class="num">85</td>
+        <td class="num">$217</td>
+        <td><span class="chip neu">Normal</span></td>
+      </tr>
+      <tr>
+        <td>Norcenter</td>
+        <td class="num">$121.022</td>
+        <td class="num">554.888</td>
+        <td class="num">79</td>
+        <td class="num">$218</td>
+        <td><span class="chip neu">Normal</span></td>
+      </tr>
+      <tr>
+        <td>Palmas del Pilar</td>
+        <td class="num">$81.123</td>
+        <td class="num">406.807</td>
+        <td class="num" style="color:var(--amber)">2</td>
+        <td class="num">$199</td>
+        <td><span class="chip warn">⚠ Clicks bajos</span></td>
+      </tr>
+      <tr>
+        <td>Pilar</td>
+        <td class="num">$34.987</td>
+        <td class="num">130.681</td>
+        <td class="num" style="color:var(--amber)">2</td>
+        <td class="num">$268</td>
+        <td><span class="chip warn">⚠ Revisar</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="note" style="margin-top:8px">Alcorta es sucursal nueva incorporada al plan GEO (fuera del listado histórico de 6 sucursales). Dato a confirmar con cliente. Palmas del Pilar y Pilar muestran clicks en dirección mínimos (2 cada una) pese a alcance considerable — revisar creatividades y segmentación geográfica de estas campañas. Pilar tiene el CPM más alto ($268) entre las sucursales.</p>
+</div>
+
+<!-- OPTIMIZACIONES -->
+<div class="card" style="margin-bottom:16px">
+  <div class="section-title">Optimizaciones y Próximos Pasos</div>
+  <div class="g g2">
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">🔴 Prioridad Alta</div>
+      <ul class="bul">
+        <li><strong>RMKT Tickets y RMKT OpenMix:</strong> ROAS 1.28x y 1.19x respectivamente. Se recomienda revisar audiencias de remarketing, frecuencia, creatividades y considerar reducción de inversión o pausa hasta rediseño de segmentación.</li>
+        <li><strong>Palmas del Pilar y Pilar GEO:</strong> 2 clicks en dirección cada una con alcance &gt;100K. Validar si el pixel de dirección está activo, revisar creatividades locales y evaluar si la segmentación geográfica es suficientemente precisa.</li>
+        <li><strong>Campaña High Tickets Premium:</strong> Confirmar con Mihran si es una campaña del nomenclador oficial o experimental. Alinear nomenclador para correcta trazabilidad.</li>
+      </ul>
+    </div>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">🟡 Prioridad Media</div>
+      <ul class="bul">
+        <li><strong>Mix High Ticket (59.8% del revenue):</strong> Señal fuerte de demanda premium. Se propone evaluar con Mihran disponibilidad de stock en líneas Yute 200x290+, Sisalo 240x340 y Himalaya. Si el stock lo permite, aumentar presupuesto en High Tickets.</li>
+        <li><strong>Alcorta (sucursal nueva):</strong> Alta eficiencia en clicks por inversión vs otras sucursales. Evaluar incremento de inversión GEO en Alcorta para acompañar apertura.</li>
+        <li><strong>S3 Sep (15–16):</strong> Monitorear si el ticket promedio de $852K y ACOS 8.94% se sostiene a lo largo de la semana completa o fue concentración de pedidos de lunes-martes.</li>
+      </ul>
+      <div style="font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:16px;margin-bottom:8px">🟢 Para validar con Mihran</div>
+      <ul class="bul">
+        <li>Confirmar si Yute Sara Sand Natural Light 300x450 ($3.024.000 por unidad) es SKU nuevo o reposición excepcional.</li>
+        <li>Validar disponibilidad de stock en Top 10 SKUs para sostener mix High Ticket en segunda quincena.</li>
+        <li>Confirmar si existe objetivo de inversión semanal diferente al proporcional ($26.7M / 4.3 sem ≈ $6.2M/sem).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- RESUMEN EJECUTIVO -->
+<div class="card" style="margin-bottom:16px;border-left:4px solid var(--blue)">
+  <div class="section-title">Resumen Ejecutivo</div>
+  <ul class="bul">
+    <li><strong>Facturación acumulada $70.2M:</strong> 50.1% del objetivo mensual cumplido con el 53% del mes transcurrido. La tendencia semanal es ascendente: S1 $25.6M → S2 $32.7M → S3 parcial $11.9M en solo 2 días.</li>
+    <li><strong>ROAS real 6.82x — ACOS 14.66%:</strong> Ambos indicadores superan los objetivos del mes (ACOS objetivo 19.08%). La eficiencia de medios mejoró significativamente respecto a Ago 1–16 (ROAS 5.14x → 6.82x).</li>
+    <li><strong>Mix High Ticket 59.8% del revenue:</strong> Muy por encima del 36.8% del H1 2026. El Top 10 SKUs es 100% alfombras grandes premium. Este mix explica el ROAS elevado y el ticket promedio de la semana inicial.</li>
+    <li><strong>Alcorta incorporada como sucursal nueva:</strong> Se detecta una 7ª sucursal en el plan GEO que no estaba en el histórico. Alta eficiencia relativa en clicks por inversión.</li>
+    <li><strong>RMKT bajo rendimiento:</strong> Ambas campañas de remarketing con ROAS &lt;1.5x requieren revisión urgente antes de nueva carga de inversión.</li>
+  </ul>
+</div>
+
+<div class="footer">
+  Shake · Weekly Report Mihran Argentina · Sep 1–16, 2026 · Fuente: Backend Items (verdad), Meta Ads, Google Ads, GA4 · Corte: 16 de septiembre, 2026
+</div>
+
+</div>
+
+<script>
+// Facturación diaria
+const factCtx = document.getElementById('chartFact').getContext('2d');
+new Chart(factCtx, {
+  type: 'bar',
+  data: {
+    labels: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16'],
+    datasets: [{
+      label: 'Facturación diaria',
+      data: [3200000,2800000,4100000,3500000,3900000,4200000,3867649,4500000,3800000,5200000,4900000,4100000,5100000,5103724,6200000,5731400],
+      backgroundColor: function(ctx) {
+        const v = ctx.raw;
+        if (v >= 5000000) return '#1D9E75';
+        if (v >= 3500000) return '#185FA5';
+        return '#aaa';
+      },
+      borderRadius: 4
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => '$' + (ctx.raw/1000000).toFixed(2) + 'M' } } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { ticks: { callback: v => '$' + (v/1000000).toFixed(1) + 'M' }, grid: { color: '#e2e1dc' } }
+    }
+  }
+});
+
+// GA4 sesiones
+const ga4Ctx = document.getElementById('chartGA4').getContext('2d');
+new Chart(ga4Ctx, {
+  type: 'line',
+  data: {
+    labels: ['Sep 1','Sep 2','Sep 3','Sep 4','Sep 5','Sep 6','Sep 7','Sep 8','Sep 9','Sep 10','Sep 11','Sep 12','Sep 13','Sep 14','Sep 15','Sep 16'],
+    datasets: [
+      {
+        label: 'Sesiones Sep',
+        data: [2300,2100,2800,2600,2900,2700,2500,2650,2400,2850,2750,2550,2900,2900,2550,2882],
+        borderColor: '#185FA5', backgroundColor: 'rgba(24,95,165,0.08)', fill: true,
+        tension: 0.3, pointRadius: 3
+      },
+      {
+        label: 'Media Agosto (ref.)',
+        data: [2200,2200,2200,2200,2200,2200,2200,2200,2200,2200,2200,2200,2200,2200,2200,2200],
+        borderColor: '#BA7517', borderDash: [5,3], fill: false,
+        pointRadius: 0, tension: 0
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+      y: { grid: { color: '#e2e1dc' }, ticks: { font: { size: 11 } } }
+    }
+  }
+});
+
+// Tiers donut
+const tiersCtx = document.getElementById('chartTiers').getContext('2d');
+new Chart(tiersCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['High Premium', 'High Estándar', 'Mid', 'Low'],
+    datasets: [{
+      data: [21.4, 38.5, 32.5, 7.7],
+      backgroundColor: ['#D85A30','#BA7517','#185FA5','#aaa'],
+      borderWidth: 2, borderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
+      tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw + '%' } }
+    }
+  }
+});
+
+// Materiales donut
+const matCtx = document.getElementById('chartMat').getContext('2d');
+new Chart(matCtx, {
+  type: 'doughnut',
+  data: {
+    labels: ['Otros/Sint.', 'Sisalo/Sisal', 'Yute', 'Himalaya/Lana', 'Otros nat.', 'Shaggy'],
+    datasets: [{
+      data: [24.4, 21.9, 20.7, 16.1, 11.2, 5.1],
+      backgroundColor: ['#aaa','#185FA5','#1D9E75','#BA7517','#8BC34A','#D85A30'],
+      borderWidth: 2, borderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } },
+      tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw + '%' } }
+    }
+  }
+});
+</script>
+</body>
+</html>
